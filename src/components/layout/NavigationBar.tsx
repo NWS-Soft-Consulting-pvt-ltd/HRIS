@@ -44,13 +44,21 @@ interface NavItem {
     | "white";
   endIcon?: ReactNode;
   active?: boolean;
+  subItems?: NavItem[];
 }
 
 const navItems: NavItem[] = [
   { name: "Home", path: "/", active: true },
   { name: "About Us", path: "/aboutUs" },
   { name: "Services", path: "/services" },
-  { name: "Features", path: "/feature" },
+  {
+    name: "Features",
+    path: "/feature",
+    subItems: [
+      { name: "Payroll", path: "/feature1" },
+      { name: "Recuirtment", path: "/feature2" },
+    ],
+  },
   { name: "Contact Us", path: "/contactUs" },
   {
     name: "Log in",
@@ -74,7 +82,7 @@ const LogoImg = styled("img")(({ theme }) => ({
 }));
 
 const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
-  color: theme.palette.getContrastText("#FFFFFF"),
+  color: theme.palette.getContrastText("#0000FF"),
   backgroundColor: "#BEBEBE",
   "&:hover": { backgroundColor: "#D3D3D3" },
 }));
@@ -118,7 +126,7 @@ export default function NavigationBar() {
   // const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   // const [textcolor] = useState<string>("#191970");
-  const [shadoww, setShadoww] = useState<number>(0);
+  const [customShadow, setCustomShadow] = useState<number>(0);
   // const [titleTextcolor] = useState<string>("#191970");
   // const [navBackground, setnavBackground] = useState<string>(
   //   // "url(https://ik.imagekit.io/nwssoft/NWS_Prerna_Project/Landing_Page/hero-bg__1_.png?updatedAt=1683110122152)"
@@ -139,11 +147,11 @@ export default function NavigationBar() {
           alt="logo"
         /> */}
         <br />
-        web site name
+        NWS SOFT PAYROLL
       </DrawerTitle>
       <Divider />
 
-      <List color="#191970">
+      {/* <List color="#191970">
         {navItems.map((item: NavItem) => (
           <ListItem key={item.name} disablePadding>
             <ListItemButton
@@ -155,6 +163,36 @@ export default function NavigationBar() {
               onClick={() => handlePayButton(item)}
             >
               <ListItemText primary={item.name} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List> */}
+
+      <List color="#191970">
+        {navItems.map((item: NavItem) => (
+          <ListItem key={item.name} disablePadding>
+            <ListItemButton
+              sx={{
+                textAlign: "center",
+              }}
+              onClick={() => handlePayButton(item)}
+            >
+              <ListItemText primary={item.name} />
+              {item.subItems && (
+                <List>
+                  {item.subItems.map((subItem: NavItem) => (
+                    <ListItem
+                      key={subItem.name}
+                      disablePadding
+                      sx={{ textAlign: "center" }}
+                    >
+                      <ListItemButton onClick={() => handlePayButton(subItem)}>
+                        <ListItemText primary={subItem.name} />
+                      </ListItemButton>
+                    </ListItem>
+                  ))}
+                </List>
+              )}
             </ListItemButton>
           </ListItem>
         ))}
@@ -176,12 +214,12 @@ export default function NavigationBar() {
   //       const currentScrollY = currentWindow.scrollY;
   //       if (currentScrollY > 20) {
   //         setnavBackground("#fff");
-  //         setShadoww(3);
+  //         setCustomShadow(3);
   //       } else {
   //         setnavBackground(
   //           "url(https://ik.imagekit.io/nwssoft/NWS_Prerna_Project/Landing_Page/hero-bg__1_.png?updatedAt=1683110122152)"
   //         );
-  //         setShadoww(0);
+  //         setCustomShadow(0);
   //       }
   //     }
   //   };
@@ -196,12 +234,7 @@ export default function NavigationBar() {
 
   return (
     <>
-      <Grid
-        sx={{
-          display: "flex",
-          zIndex: 999,
-        }}
-      >
+      <Grid container sx={{ display: "flex", zIndex: 999 }}>
         <CssBaseline />
         <AppBar
           component="nav"
@@ -220,7 +253,7 @@ export default function NavigationBar() {
               sm: NAV_COLOR,
             },
             transition: "background-color 0.9s ease-in-out",
-            boxShadow: shadoww,
+            boxShadow: customShadow,
           }}
         >
           <Container maxWidth="xl">
@@ -290,7 +323,7 @@ export default function NavigationBar() {
                       fontFamily: "'Nunito Sans', sans-serif",
                     }}
                   >
-                    web site name
+                    NWS SOFT PAYROLL
                   </Typography>
                 </Grid>
 

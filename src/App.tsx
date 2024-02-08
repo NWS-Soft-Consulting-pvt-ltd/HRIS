@@ -1,12 +1,10 @@
 import "./App.css";
-import Footer from "./components/footer/Footer";
-import NavigationBar from "./components/header/NavigationBar";
+import Routing from "./routing/Routing";
 
 function App() {
   return (
     <>
-      <NavigationBar />
-      <Footer />
+      <Routing />
     </>
   );
 }
