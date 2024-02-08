@@ -25,7 +25,9 @@ export default function Footer() {
         width: "100%",
         height: "auto",
         backgroundColor: "#696969",
-        // paddingTop: "1rem",
+        position: "fixed",
+        bottom: 0,
+        paddingTop: "1rem",
         // paddingBottom: "1rem",
         color: "white",
         mt: "100px"
