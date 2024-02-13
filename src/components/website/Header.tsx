@@ -1,10 +1,9 @@
-import CurrencyRupeeOutlinedIcon from "@mui/icons-material/CurrencyRupeeOutlined";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Stack, colors } from "@mui/material";
+import { Stack } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Button, { ButtonProps } from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
@@ -17,37 +16,18 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { purple, grey } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
-import { ReactNode, useEffect, useState } from "react";
-// import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 200;
-const NAV_COLOR = "#696969";
-const DRWR_COLOR = "#7D98A1";
+const NAV_COLOR = "#34495E";
+const DRWR_COLOR = "#707e8b";
 const BTN_COLOR = "#F5F5F5";
 const HEAD_COLOR = "#F5F5F5";
 const DRWR_TXT_COLOR = "#F5F5F5";
 
-interface NavItem {
-  name: string;
-  path: string;
-  variant?: "contained" | "text" | "outlined";
-  color?:
-    | "inherit"
-    | "primary"
-    | "secondary"
-    | "info"
-    | "success"
-    | "warning"
-    | "textcolor"
-    | "white";
-  endIcon?: ReactNode;
-  active?: boolean;
-  subItems?: NavItem[];
-}
-
-const navItems: NavItem[] = [
+const navItems = [
   { name: "Home", path: "/", active: true },
   { name: "About Us", path: "/aboutUs" },
   { name: "Services", path: "/services" },
@@ -81,9 +61,9 @@ const LogoImg = styled("img")(({ theme }) => ({
   },
 }));
 
-const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
+const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText("#0000FF"),
-  backgroundColor: "#BEBEBE",
+  backgroundColor: "#71869A",
   "&:hover": { backgroundColor: "#D3D3D3" },
 }));
 
@@ -119,25 +99,15 @@ const ResGridTitleLogo = styled(Grid)(({ theme }) => ({
   },
 }));
 
-export default function NavigationBar() {
-  // const location: any = useLocation();
-
-  // const user: any = sessionStorage.getItem("user");
-  // const navigate = useNavigate();
-  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
-  // const [textcolor] = useState<string>("#191970");
-  const [customShadow, setCustomShadow] = useState<number>(0);
-  // const [titleTextcolor] = useState<string>("#191970");
-  // const [navBackground, setnavBackground] = useState<string>(
-  //   // "url(https://ik.imagekit.io/nwssoft/NWS_Prerna_Project/Landing_Page/hero-bg__1_.png?updatedAt=1683110122152)"
-  //   NAV_COLOR
-  // );
+export default function Header() {
+  const navigate = useNavigate();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [customShadow, setCustomShadow] = useState(0);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  // side bar drawer
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <DrawerTitle variant="body2" sx={{ my: 2 }}>
@@ -151,43 +121,28 @@ export default function NavigationBar() {
       </DrawerTitle>
       <Divider />
 
-      {/* <List color="#191970">
-        {navItems.map((item: NavItem) => (
-          <ListItem key={item.name} disablePadding>
-            <ListItemButton
-              sx={{
-                // color: (theme) =>
-                //   isHovered ? "black" : "white",
-                textAlign: "center",
-              }}
-              onClick={() => handlePayButton(item)}
-            >
-              <ListItemText primary={item.name} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
-
       <List color="#191970">
-        {navItems.map((item: NavItem) => (
+        {navItems.map((item) => (
           <ListItem key={item.name} disablePadding>
             <ListItemButton
               sx={{
                 textAlign: "center",
               }}
-              onClick={() => handlePayButton(item)}
+              onClick={() => handlePayButton(item.path)}
             >
               <ListItemText primary={item.name} />
               {item.subItems && (
                 <List>
-                  {item.subItems.map((subItem: NavItem) => (
+                  {item.subItems.map((subItems) => (
                     <ListItem
-                      key={subItem.name}
+                      key={subItems.name}
                       disablePadding
                       sx={{ textAlign: "center" }}
                     >
-                      <ListItemButton onClick={() => handlePayButton(subItem)}>
-                        <ListItemText primary={subItem.name} />
+                      <ListItemButton
+                        onClick={() => handlePayButton(item.path)}
+                      >
+                        <ListItemText primary={subItems.name} />
                       </ListItemButton>
                     </ListItem>
                   ))}
@@ -200,37 +155,9 @@ export default function NavigationBar() {
     </Box>
   );
 
-  const handlePayButton = (item: any) => {
-    // navigate(
-    //   user && user && item.path === "/login" ? "/dashboard" : `${item.path}`
-    // );
-    window.scrollTo(0, 0);
+  const handlePayButton = (path: string) => {
+    navigate(path);
   };
-
-  // useEffect(() => {
-  //   const currentWindow = window as unknown as Window;
-  //   const handleScroll = () => {
-  //     if (typeof currentWindow !== "undefined") {
-  //       const currentScrollY = currentWindow.scrollY;
-  //       if (currentScrollY > 20) {
-  //         setnavBackground("#fff");
-  //         setCustomShadow(3);
-  //       } else {
-  //         setnavBackground(
-  //           "url(https://ik.imagekit.io/nwssoft/NWS_Prerna_Project/Landing_Page/hero-bg__1_.png?updatedAt=1683110122152)"
-  //         );
-  //         setCustomShadow(0);
-  //       }
-  //     }
-  //   };
-
-  //   if (typeof currentWindow !== "undefined") {
-  //     currentWindow.addEventListener("scroll", handleScroll);
-  //     return () => {
-  //       currentWindow.removeEventListener("scroll", handleScroll);
-  //     };
-  //   }
-  // }, []);
 
   return (
     <>
@@ -358,10 +285,10 @@ export default function NavigationBar() {
                     spacing={2}
                     sx={{ textTransform: "none" }}
                   >
-                    {navItems.map((item: NavItem) => (
+                    {navItems.map((item) => (
                       <ColorButton
                         key={item.name}
-                        variant={item.variant || "text"}
+                        // variant={item.variant || "text"}
                         endIcon={item.endIcon}
                         size="medium"
                         sx={{
@@ -380,7 +307,7 @@ export default function NavigationBar() {
                               "orange" /* desired text color for visited button */,
                           },
                         }}
-                        onClick={() => handlePayButton(item)}
+                        onClick={() => handlePayButton(item.path)}
                       >
                         {item.name}
                       </ColorButton>

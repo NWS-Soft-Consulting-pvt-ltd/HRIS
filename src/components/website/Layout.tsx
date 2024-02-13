@@ -1,13 +1,14 @@
+import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
-import NavigationBar from "./NavigationBar";
 import Footer from "./Footer";
+import Header from "./Header";
 
 export default function Layout() {
   return (
-    <>
-      <NavigationBar />
+    <Fragment>
+      <Header />
       <Outlet />
       <Footer />
-    </>
+    </Fragment>
   );
 }
