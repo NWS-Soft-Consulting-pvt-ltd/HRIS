@@ -1,16 +1,17 @@
 import { Container } from "@mui/material";
 import { FC, Fragment, ReactNode, useState } from "react";
-import {
-  BrowserRouter,
-  Navigate,
-  Route,
-  Routes
-} from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { RouteComponent } from "../components/interfaces/Interfaces";
 import Home from "../components/website/Home";
 import Layout from "../components/website/Layout";
 import Login from "../components/website/Login";
 import routesList from "./RoutesList";
+import Features from "../components/website/Features";
+import About from "../components/website/About";
+import Contact from "../components/website/Contact";
+import Payroll from "../components/website/Payroll";
+import Recruitment from "../components/website/Recruitment";
+import HrManagement from "../components/website/HrManagement";
 
 const AppRouter: FC = () => {
   const [isAuthenticated, setAuthenticated] = useState<boolean>(true);
@@ -35,6 +36,12 @@ const AppRouter: FC = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/about-us" element={<About />} />
+            <Route path="/contact-us" element={<Contact />} />
+            <Route path="/payroll" element={<Payroll />} />
+            <Route path="/recruitment" element={<Recruitment />} />
+            <Route path="/hr-management" element={<HrManagement />} />
             <Route
               path="/login"
               element={

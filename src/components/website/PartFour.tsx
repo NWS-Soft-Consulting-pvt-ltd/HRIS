@@ -1,103 +1,54 @@
-import {
-  Grid,
-  Typography,
-  Button,
-  Box,
-  TextField,
-  Container,
-} from "@mui/material";
-import { useState } from "react";
-import { ContactUs } from "../interfaces/Interfaces";
+import { Container, Grid, Typography } from "@mui/material";
 
 const PartFour = () => {
-  const [contactInfo, setContactInfo] = useState<ContactUs | undefined>(
-    undefined
-  );
-
   return (
-    <Container>
-      <Grid container spacing={2}>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          component="form"
-          noValidate
-          autoComplete="off"
-        >
-          <Grid container spacing={3} padding={3}>
-            <Grid item xs={12} marginBottom={3}>
-              <Typography
-                variant="h4"
-                textTransform="uppercase"
-                textAlign="center"
-              >
-                contact us
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Full Name"
-                variant="outlined"
-                type="text"
-                size="small"
-                fullWidth
-                value={contactInfo?.name}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Email"
-                variant="outlined"
-                type="email"
-                size="small"
-                fullWidth
-                value={contactInfo?.email}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Contact"
-                variant="outlined"
-                type="text"
-                size="small"
-                fullWidth
-                value={contactInfo?.phone}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                placeholder="Enter a message"
-                type="text"
-                size="small"
-                spellCheck
-                minRows={3}
-                multiline
-                value={contactInfo?.message}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Button
-                variant="contained"
-                type="submit"
-                color="primary"
-                sx={{
-                  alignSelf: "flex-start",
-                  backgroundColor: "#71869A",
-                  "&:hover": { backgroundColor: "#D3D3D3" },
-                }}
-              >
-                Submit
-              </Button>
-            </Grid>
-          </Grid>
+    <Container sx={{ py: 10 }}>
+      <Grid container spacing={2} padding={2}>
+        <Grid item xs={12} md={7}>
+          <Typography textTransform="uppercase" marginY={1} fontWeight={600}>
+            Employee Information
+          </Typography>
+          <Typography variant="body1" textAlign="justify">
+            Payroll software allows HR managers to maintain employee information
+            such as name, address, contact information, employment status, and
+            other details related to compensation. This information is essential
+            to calculate accurate employee pay.
+          </Typography>
+          <Typography textTransform="uppercase" marginY={1} fontWeight={600}>
+            Time and Attendance Management
+          </Typography>
+          <Typography variant="body1" textAlign="justify">
+            Time and attendance management is a key feature of payroll software
+            that allows managers to track employee attendance and hours worked.
+            This information is used to calculate employee pay and manage
+            overtime, bonuses, and other pay-related benefits. Here are some of
+            the key functions of time and attendance management in payroll
+            software.
+          </Typography>
+          <Typography textTransform="uppercase" marginY={1} fontWeight={600}>
+            Payroll Processing
+          </Typography>
+          <Typography variant="body1" textAlign="justify">
+            Payroll processing is one of the most critical features of payroll
+            software. It involves calculating employee pay based on their hours
+            worked, pay rate, and any additional factors such as bonuses,
+            overtime, or deductions. Here are some of the key functions of
+            payroll processing in payroll software.
+          </Typography>
+          <Typography textTransform="uppercase" marginY={1} fontWeight={600}>
+            Recruitment
+          </Typography>
+          <Typography variant="body1" textAlign="justify">
+            The employee recruitment module can help you save time, money, and
+            worry by automating and standardizing your recruiting process.
+            Generate job descriptions Post jobs Obtain application Evaluating
+            candidates Schedule and monitor applicants
+          </Typography>
         </Grid>
-
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={5}>
           <img
-            src="https://ik.imagekit.io/nwssoft/Payroll-portal/people-collaborating.png?updatedAt=1707743699185"
-            alt="man-sitting-with-laptop"
+            src="https://ik.imagekit.io/nwssoft/Payroll-portal/hr-payroll.webp?updatedAt=1708063440261"
+            alt="Payroll-Circle"
             width="100%"
           />
         </Grid>

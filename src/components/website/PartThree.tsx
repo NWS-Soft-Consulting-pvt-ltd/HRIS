@@ -70,6 +70,7 @@ const PartThree = () => {
             minHeight={300}
             key={item.id}
             sx={{
+              backgroundColor: "#8AAAE5",
               textAlign: "center",
               padding: "10px",
               width: "250px",

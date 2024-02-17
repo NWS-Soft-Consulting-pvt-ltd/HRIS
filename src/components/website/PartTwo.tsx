@@ -29,7 +29,7 @@ const sectionItems = [
 
 const PartTwo = () => {
   return (
-    <Box sx={{ mt: 5 }}>
+    <Box sx={{ mt: 10 }}>
       <Typography
         variant="h4"
         fontWeight={700}
@@ -37,7 +37,7 @@ const PartTwo = () => {
         textTransform="uppercase"
         color="#007791"
       >
-        benefits of choosing nws soft payroll system
+        benefits of choosing SAWA HRIS system
       </Typography>
       <Grid
         container
