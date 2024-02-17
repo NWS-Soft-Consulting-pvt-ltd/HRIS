@@ -12,9 +12,10 @@ function Home() {
       <Box
         sx={{
           backgroundImage:
-            "url(https://ik.imagekit.io/nwssoft/Payroll-portal/HRIS-Website/28428245_rm222batch5-mind-16.jpg?updatedAt=1708107623763)",
+            "url(https://ik.imagekit.io/nwssoft/Payroll-portal/HRIS-Website/27472520_1340.jpg?updatedAt=1708107623790)",
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
+          backgroundPosition: "center"
         }}
       >
         <CssBaseline />

@@ -1,8 +1,8 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
-import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
 import HistoryToggleOffIcon from "@mui/icons-material/HistoryToggleOff";
 import InsightsIcon from "@mui/icons-material/Insights";
 import Person3Icon from "@mui/icons-material/Person3";
+import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
+import { Box, Container, Grid, Typography } from "@mui/material";
 
 const sectionItems = [
   {
@@ -44,6 +44,7 @@ const Features = () => {
             "url(https://ik.imagekit.io/nwssoft/Payroll-portal/HRIS-Website/16351667_rm222batch5-kul-18.jpg?updatedAt=1708107623744)",
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
+          backgroundPosition: "center"
         }}>
         <Container sx={{ py: 15 }}>
           <Box>
