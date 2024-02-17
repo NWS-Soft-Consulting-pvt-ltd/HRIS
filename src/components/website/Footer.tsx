@@ -27,8 +27,8 @@ const Footer: FC = () => {
                 <Stack direction="column" spacing={2}>
                   <Typography variant="h6">Find Us</Typography>
                   <Typography variant="body2" gutterBottom>
-                    Prerna Academy Pvt. Ltd. 82 Swami Vivekanand Nagar Telephone
-                    Square, Kanadia Road Indore (M.P). Pin 452018
+                    Office 139 Building 9 - Dubai Media City - United Arab
+                    Emirates
                   </Typography>
                 </Stack>
               </Grid>
@@ -43,8 +43,7 @@ const Footer: FC = () => {
                 <Stack direction="column" spacing={2}>
                   <Typography variant="h6">Call Us</Typography>
                   <Typography variant="body2" gutterBottom>
-                    +91 731 429 8599 <br></br>
-                    +91 835 889 9900
+                    +97145136866
                   </Typography>
                 </Stack>
               </Grid>
@@ -59,7 +58,7 @@ const Footer: FC = () => {
                 <Stack direction="column" spacing={2}>
                   <Typography variant="h6">Mail Us</Typography>
                   <Typography variant="body2" gutterBottom>
-                    info@prernaacademy.in
+                    info@sawatechnologies.com
                   </Typography>
                 </Stack>
               </Grid>
