@@ -31,7 +31,7 @@ const sectionItems = [
   },
 ];
 
-const PartThree = () => {
+const Plan = () => {
   return (
     <Box>
       <Typography
@@ -105,4 +105,4 @@ const PartThree = () => {
   );
 };
 
-export default PartThree;
+export default Plan;
