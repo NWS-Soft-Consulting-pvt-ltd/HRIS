@@ -12,6 +12,7 @@ import Contact from "../components/website/Contact";
 import Payroll from "../components/website/Payroll";
 import Recruitment from "../components/website/Recruitment";
 import HrManagement from "../components/website/HrManagement";
+import TimeAttendance from "../components/website/TimeAttendance";
 
 const AppRouter: FC = () => {
   const [isAuthenticated, setAuthenticated] = useState<boolean>(true);
@@ -42,6 +43,7 @@ const AppRouter: FC = () => {
             <Route path="/payroll" element={<Payroll />} />
             <Route path="/recruitment" element={<Recruitment />} />
             <Route path="/hr-management" element={<HrManagement />} />
+            <Route path="/time-attendance" element={<TimeAttendance />} />
             <Route
               path="/login"
               element={

@@ -1,28 +1,19 @@
-import { Box, Container, Grid, Paper, Typography } from "@mui/material";
-import React from "react";
 import Person2Icon from "@mui/icons-material/Person2";
+import { Box, Container, Grid, Paper, Typography } from "@mui/material";
 
 export default function About() {
   return (
-    <Box sx={{
-      backgroundImage:
-        "url(https://ik.imagekit.io/nwssoft/Payroll-portal/HRIS-Website/28428245_rm222batch5-mind-16.jpg?updatedAt=1708107623763)",
-      backgroundAttachment: "fixed",
-      backgroundSize: "cover",
-    }}>
-      <Container sx={{py: 10}}>
+    <Box
+      sx={{
+        backgroundImage:
+          "url(https://ik.imagekit.io/nwssoft/Payroll-portal/HRIS-Website/28428245_rm222batch5-mind-16.jpg?updatedAt=1708107623763)",
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+      }}
+    >
+      <Container sx={{ py: 10 }}>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Typography
-              variant="h3"
-              fontWeight={700}
-              textAlign="center"
-              marginTop={5}
-            >
-              About Us
-            </Typography>
-          </Grid>
-          <Grid item xs={6} md={6} marginTop={5}>
+          <Grid item xs={12} md={6}>
             <Typography variant="h4" fontWeight={700}>
               HRIS Management For Dubai
             </Typography>
@@ -76,7 +67,8 @@ export default function About() {
             </Typography>
             <br></br>
           </Grid>
-          <Grid item xs={6} marginTop={4}>
+
+          <Grid item xs={12} md={6}>
             <img
               src="https://ik.imagekit.io/nwssoft/Payroll-portal/side-view-people-working-with-laptop%20(1).jpg?updatedAt=1708068089660"
               alt="man-sitting-with-laptop"
@@ -85,25 +77,25 @@ export default function About() {
               style={{ borderRadius: "15px" }}
             />
           </Grid>
-          <Grid item xs={6}>
+
+          <Grid item xs={12} md={6}>
             <img
-              // src="https://ik.imagekit.io/nwssoft/Payroll-portal/4557388-removebg-preview.png?updatedAt=1708068699102"
               src="https://ik.imagekit.io/nwssoft/Payroll-portal/about-us_Fmf6jKy00-removebg-preview.png?updatedAt=1708062444715"
               alt="man-sitting-with-laptop"
               width="100%"
-              height="75%"
             />
           </Grid>
-          <Grid item xs={6} md={6}>
-            <Typography variant="h4" fontWeight={700} textAlign="center">
+
+          <Grid item xs={12} md={6}>
+            <Typography
+              variant="h4"
+              fontWeight={700}
+              textAlign="center"
+              textTransform="uppercase"
+            >
               Our Vision
             </Typography>
-            <Typography
-              variant="body1"
-              fontSize={17}
-              sx={{ padding: "20px" }}
-              marginTop={3}
-            >
+            <Typography variant="body1" fontSize={17} sx={{ padding: "20px" }}>
               HR and Payroll teams face the brunt of overload towards the end of
               the month. Imagine if you could save 4 working days per month by
               automating mundane and repetitive tasks. It offers Payroll and HR
@@ -113,41 +105,39 @@ export default function About() {
             </Typography>
           </Grid>
 
-          <Grid container item xs={12} justifyContent="center">
-            <Typography variant="h4" fontWeight={700} textAlign="center">
+          <Grid item xs={12}>
+            <Typography
+              variant="h4"
+              fontWeight={700}
+              textAlign="center"
+              marginBottom={5}
+              textTransform="uppercase"
+            >
               Love From Clients
             </Typography>
-            <Paper
-              elevation={4}
-              sx={{ marginTop: "13px", width: "fit-content" }}
-            >
-              <Typography
-                variant="h6"
-                sx={{ padding: "30px" }}
-                textAlign="center"
-              >
+            <Paper elevation={4} sx={{ padding: 5, borderRadius: 5 }}>
+              <Typography variant="h6" textAlign="justify">
                 As a growing not-for-profit, we needed an HR solution that could
                 help us manage our core HR processes at minimal cost. That's
-                where Kredily helped us out!! Kredily brought to us a{" "}
-                <b>Core HR Suit at no cost</b>. Its basic and simple interface
+                where SAWA HRIS helped us out! SAWA HRIS brought to us a
+                <b> Core HR Suit at no cost</b>. Its basic and simple interface
                 is very intuitive and doesn't require any training to implement.
                 It's interesting to see how in India, an HRIS company is
                 offering these valuable services at no cost to clients.
               </Typography>
-              <Grid container justifyContent="center" alignItems="center">
-                <Grid item sx={{ marginRight: "10px" }}>
-                  <Person2Icon sx={{ fontSize: 40, color: "	#808080" }} />
-                </Grid>
-                <Grid item>
-                  <Typography
-                    variant="h6"
-                    sx={{ fontSize: "20px", color: "	#808080" }}
-                    fontWeight={700}
-                  >
-                    Priya Sharma
-                  </Typography>
-                </Grid>
-              </Grid>
+              <Typography
+                variant="h6"
+                color="#808080"
+                fontWeight={700}
+                textAlign="center"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                marginTop={3}
+              >
+                <Person2Icon sx={{ fontSize: 40, color: "	#808080" }} />
+                Priya Sharma
+              </Typography>
             </Paper>
           </Grid>
         </Grid>

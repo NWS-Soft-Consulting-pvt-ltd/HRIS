@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from "@mui/material";
 export default function Recruitment() {
   return (
     <>
-      <Box sx={{ padding: 10, backgroundColor: "#DED1CE" }}>
+      <Box sx={{ padding: 10 }}>
         <Grid container spacing={1}>
           <Grid
             item
@@ -140,7 +140,7 @@ export default function Recruitment() {
           </Grid>
         </Grid>
       </Box>
-      <Box sx={{ backgroundColor: "#DED1CE", padding: 10 }}>
+      <Box sx={{ padding: 10 }}>
         <Grid container spacing={1}>
           <Grid
             item
