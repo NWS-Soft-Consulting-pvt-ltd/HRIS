@@ -70,7 +70,7 @@ export default function Recruitment() {
           >
             <img
               src={
-                "https://ik.imagekit.io/nwssoft/Payroll-portal/4530296_19283-removebg-preview.png?updatedAt=1708079661657"
+                "https://ik.imagekit.io/nwssoft/Payroll-portal/8292849.jpg?updatedAt=1706864576623"
               }
               alt="HR Recruitment"
               style={{

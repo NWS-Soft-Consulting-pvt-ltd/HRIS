@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Fragment } from "react";
-import PartFour from "./PartFour";
-import PartOne from "./PartOne";
-import PartThree from "./PartThree";
-import PartTwo from "./PartTwo";
+import InformationChart from "./InformationChart";
+import Landing from "./Landing";
+import Plan from "./Plan";
+import Benefits from "./Benefits";
 
 function Home() {
   return (
@@ -15,14 +15,14 @@ function Home() {
             "url(https://ik.imagekit.io/nwssoft/Payroll-portal/HRIS-Website/27472520_1340.jpg?updatedAt=1708107623790)",
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
-          backgroundPosition: "center"
+          backgroundPosition: "center",
         }}
       >
         <CssBaseline />
-        <PartOne />
-        <PartTwo />
-        <PartThree />
-        <PartFour />
+        <Landing />
+        <Benefits />
+        <Plan />
+        <InformationChart />
       </Box>
     </Fragment>
   );

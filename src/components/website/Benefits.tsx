@@ -27,7 +27,7 @@ const sectionItems = [
   },
 ];
 
-const PartTwo = () => {
+const Benefits = () => {
   return (
     <Box sx={{ mt: 10 }}>
       <Typography
@@ -84,4 +84,4 @@ const PartTwo = () => {
   );
 };
 
-export default PartTwo;
+export default Benefits;

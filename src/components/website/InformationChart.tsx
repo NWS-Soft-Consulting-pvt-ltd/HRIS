@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
 
-const PartFour = () => {
+const InformationChart = () => {
   return (
     <Container sx={{ py: 10 }}>
       <Grid container spacing={2} padding={2}>
@@ -57,4 +57,4 @@ const PartFour = () => {
   );
 };
 
-export default PartFour;
+export default InformationChart;

@@ -2,7 +2,7 @@ import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { Fragment } from "react";
 
-const PartOne = () => {
+const Landing = () => {
   return (
     <Fragment>
       <Box
@@ -98,4 +98,4 @@ const PartOne = () => {
   );
 };
 
-export default PartOne;
+export default Landing;

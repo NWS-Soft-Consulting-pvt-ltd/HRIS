@@ -7,7 +7,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 const sectionItems = [
   {
     id: 1,
-    icon: <RequestQuoteIcon sx={{ my: 2, fontSize: 70, color: "#34495E" }} />,
+    icon: <RequestQuoteIcon sx={{ my: 2, fontSize: 100, color: "#007791" }} />,
     sentence:
       "Whether your workforce is local or global, we offer fast, easy and accurate payroll so you save time and money.",
     heading: "Payroll Services",
@@ -15,7 +15,7 @@ const sectionItems = [
   {
     id: 2,
     icon: (
-      <HistoryToggleOffIcon sx={{ my: 2, fontSize: 70, color: "#34495E" }} />
+      <HistoryToggleOffIcon sx={{ my: 2, fontSize: 100, color: "#007791" }} />
     ),
     sentence:
       "Track hours worked, manage time-off requests and seamlessly integrate with payroll.",
@@ -23,13 +23,13 @@ const sectionItems = [
   },
   {
     id: 3,
-    icon: <InsightsIcon sx={{ my: 2, fontSize: 70, color: "#34495E" }} />,
+    icon: <InsightsIcon sx={{ my: 2, fontSize: 100, color: "#007791" }} />,
     sentence: "Payroll and HR reports with access to employee master data.",
     heading: "HR Insights",
   },
   {
     id: 4,
-    icon: <Person3Icon sx={{ my: 2, fontSize: 70, color: "#34495E" }} />,
+    icon: <Person3Icon sx={{ my: 2, fontSize: 100, color: "#007791" }} />,
     sentence:
       "Focus on what matters most, from outsourcing payroll to HR management.",
     heading: "HR Services",
@@ -39,13 +39,15 @@ const sectionItems = [
 const Features = () => {
   return (
     <>
-      <Box sx={{
+      <Box
+        sx={{
           backgroundImage:
             "url(https://ik.imagekit.io/nwssoft/Payroll-portal/HRIS-Website/16351667_rm222batch5-kul-18.jpg?updatedAt=1708107623744)",
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
-          backgroundPosition: "center"
-        }}>
+          backgroundPosition: "center",
+        }}
+      >
         <Container sx={{ py: 15 }}>
           <Box>
             <Typography
@@ -109,12 +111,7 @@ const Features = () => {
               ))}
             </Grid>
           </Box>
-          <Box
-            marginTop={10}
-            // sx={{
-            //   backgroundImage : "url(https://ik.imagekit.io/nwssoft/Payroll-portal/rm222batch3-mind-01.jpg?updatedAt=1707475161136)",
-            // }}
-          >
+          <Box marginTop={10}>
             <Grid container spacing={1}>
               <Grid
                 item
@@ -159,7 +156,7 @@ const Features = () => {
               <Grid item xs={12} md={5}>
                 <img
                   src={
-                    "https://ik.imagekit.io/nwssoft/Payroll-portal/3543932-removebg-preview.png?updatedAt=1707998581812"
+                    "https://ik.imagekit.io/nwssoft/Payroll-portal/6052389.jpg?updatedAt=1707475462371"
                   }
                   alt="Man-Standing-Pencil"
                   width="100%"
