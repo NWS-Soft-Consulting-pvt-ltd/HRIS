@@ -5,6 +5,7 @@ import InformationChart from "./InformationChart";
 import Landing from "./Landing";
 import Plan from "./Plan";
 import Benefits from "./Benefits";
+import Slider from "./Slider";
 
 function Home() {
   return (
@@ -21,6 +22,7 @@ function Home() {
         <CssBaseline />
         <Landing />
         <Benefits />
+        <Slider />
         <Plan />
         <InformationChart />
       </Box>
