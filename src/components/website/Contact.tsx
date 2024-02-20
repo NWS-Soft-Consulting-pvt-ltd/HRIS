@@ -64,16 +64,7 @@ export default function Contact() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button
-                  variant="contained"
-                  type="submit"
-                  color="primary"
-                  sx={{
-                    alignSelf: "flex-start",
-                    backgroundColor: "#71869A",
-                    "&:hover": { backgroundColor: "#D3D3D3" },
-                  }}
-                >
+                <Button variant="contained" type="submit" color="primary">
                   Submit
                 </Button>
               </Grid>
@@ -85,6 +76,7 @@ export default function Contact() {
               src="https://ik.imagekit.io/nwssoft/Payroll-portal/portrait-businessman-talking-phone-office.jpg?updatedAt=1708062573342"
               alt="man-sitting-with-laptop"
               width="100%"
+              style={{ borderRadius: 10 }}
             />
           </Grid>
         </Grid>
