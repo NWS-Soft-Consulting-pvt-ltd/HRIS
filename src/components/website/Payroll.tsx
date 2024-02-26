@@ -1,5 +1,6 @@
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { Button, Container, Grid, Paper, Typography } from "@mui/material";
+import { Button, Container, Grid, Typography } from "@mui/material";
+import images from "../../images/images.json";
 
 export default function Payroll() {
   return (
@@ -14,8 +15,8 @@ export default function Payroll() {
           <Grid container spacing={2} padding={2}>
             <Grid item xs={12} md={6}>
               <img
-                src="https://img.freepik.com/free-photo/accountant-calculating-profit-with-financial-analysis-graphs_74855-4937.jpg?w=900&t=st=1708084550~exp=1708085150~hmac=4de8e0f3ac4424f49fc422baca4761c0df89ca9bb5dbf2130bd4239681afd680"
-                alt="man-sitting-with-laptop"
+                src={`${images.payrollLandingImage.src}`}
+                alt={`${images.payrollLandingImage.alt}`}
                 width="100%"
                 style={{ borderRadius: 10 }}
               />
@@ -162,8 +163,8 @@ export default function Payroll() {
           </Grid>
           <Grid item xs={12} md={5}>
             <img
-              src="https://img.freepik.com/free-vector/bill-analysis-concept-illustration_114360-19348.jpg?size=626&ext=jpg&uid=R94471499&ga=GA1.1.1250616273.1708006840&semt=sph"
-              alt="man-sitting-with-laptop"
+              src={`${images.payrollImage.src}`}
+              alt={`${images.payrollImage.alt}`}
               width="100%"
             />
           </Grid>

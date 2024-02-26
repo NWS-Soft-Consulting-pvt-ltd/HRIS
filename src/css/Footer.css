@@ -16,4 +16,9 @@
 /* links */
 .link-blue {
   color: var(--footer-link-color);
+  transition: color 0.2s; /* Optional: Smooth transition effect */
+}
+
+.link-blue:hover {
+  color: rgb(76, 103, 239);
 }

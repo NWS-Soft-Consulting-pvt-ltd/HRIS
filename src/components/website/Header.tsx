@@ -5,7 +5,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import Grid from "@mui/material/Grid";
@@ -59,9 +58,9 @@ const ColorButton = styled(Button)(({ theme }) => ({
   fontFamily: "'Nunito Sans', sans-serif",
   fontSize: "1.5 rem",
   color: HEAD_COLOR,
-  transition: "box-shadow 1s",
+  transition: "box-shadow 0.5s",
   "&:hover": {
-    backgroundColor: "#9bcdf4",
+    backgroundColor: "#4393E4",
     boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
   },
 }));
@@ -231,7 +230,6 @@ export default function Header() {
   return (
     <>
       <Grid container sx={myStyles.mainGrid}>
-        <CssBaseline />
         <AppBar
           component="nav"
           position="fixed"

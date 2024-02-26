@@ -1,8 +1,9 @@
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import { Box, Grid, Typography } from "@mui/material";
-import { ReactComponent as MySVG3 } from "../../images/Accurate-Payroll-Statutory-Compliance.svg";
 import { ReactComponent as MySVG1 } from "../../images/Better-Employee-Management.svg";
 import { ReactComponent as MySVG2 } from "../../images/Boosts-HR-Productivity.svg";
+import { ReactComponent as MySVG3 } from "../../images/Accurate-Payroll-Statutory-Compliance.svg";
+import images from "../../images/images.json";
 
 const sectionItems = [
   {
@@ -163,16 +164,10 @@ export default function HrManagement() {
             sx={{ position: "relative", overflow: "hidden", borderRadius: 8 }}
           >
             <img
-              src={
-                "https://ik.imagekit.io/nwssoft/Payroll-portal/man-sitting-with-laptop.png?updatedAt=1707737085310"
-              }
-              alt="HR Recruitment"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                transition: "transform 0.3s ease-in-out",
-              }}
+              src={`${images.hrManagementImage.src}`}
+              alt={`${images.hrManagementImage.alt}`}
+              width="100%"
+              style={{ transition: "transform 0.3s ease-in-out" }}
               onMouseOver={(e) =>
                 (e.currentTarget.style.transform = "scale(1.1)")
               }

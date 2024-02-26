@@ -1,6 +1,7 @@
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { Fragment } from "react";
+import images from "../../images/images.json";
 
 const Landing = () => {
   return (
@@ -8,8 +9,7 @@ const Landing = () => {
       <Box
         sx={{
           position: "relative",
-          backgroundImage:
-            "url(https://ik.imagekit.io/nwssoft/Payroll-portal/female-applicant-interviewed-by-hr-mangers.jpg?updatedAt=1708070265032)",
+          backgroundImage: `url(${images.landingImage.src})`,
           backgroundSize: "cover",
           paddingTop: 10,
           "&::before": {

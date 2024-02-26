@@ -1,12 +1,12 @@
 import Person2Icon from "@mui/icons-material/Person2";
 import { Box, Container, Grid, Paper, Typography } from "@mui/material";
+import images from "../../images/images.json";
 
 export default function About() {
   return (
     <Box
       sx={{
-        backgroundImage:
-          "url(https://ik.imagekit.io/nwssoft/Payroll-portal/HRIS-Website/28428245_rm222batch5-mind-16.jpg?updatedAt=1708107623763)",
+        backgroundImage: `url(${images.aboutusBackgroundImage.src})`,
         backgroundAttachment: "fixed",
         backgroundSize: "cover",
       }}
@@ -70,8 +70,8 @@ export default function About() {
 
           <Grid item xs={12} md={6}>
             <img
-              src="https://ik.imagekit.io/nwssoft/Payroll-portal/side-view-people-working-with-laptop%20(1).jpg?updatedAt=1708068089660"
-              alt="man-sitting-with-laptop"
+              src={`${images.aboutUsLandingImage.src}`}
+              alt={`${images.aboutUsLandingImage.alt}`}
               width="100%"
               height="80%"
               style={{ borderRadius: "15px" }}
@@ -80,8 +80,8 @@ export default function About() {
 
           <Grid item xs={12} md={6}>
             <img
-              src="https://ik.imagekit.io/nwssoft/Payroll-portal/about-us_Fmf6jKy00-removebg-preview.png?updatedAt=1708062444715"
-              alt="man-sitting-with-laptop"
+              src={`${images.aboutUsVisionImage.src}`}
+              alt={`${images.aboutUsVisionImage.alt}`}
               width="100%"
             />
           </Grid>
