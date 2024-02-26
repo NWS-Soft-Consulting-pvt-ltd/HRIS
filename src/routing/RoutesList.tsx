@@ -1,13 +1,8 @@
 import Dashboard from "../components/app/Dashboard";
-import Home from "../components/website/Home";
-import Login from "../components/website/Login";
 import { RouteComponent } from "../components/interfaces/Interfaces";
-import Features from "../components/website/Features";
 
 const routesList: RouteComponent[] = [
-  { path: "/", component: Home },
-  { path: "/dashboard", component: Dashboard },
-  { path: "/login", component: Login },
+  { path: "/dashboard", component: <Dashboard /> },
 ];
 
 export default routesList;

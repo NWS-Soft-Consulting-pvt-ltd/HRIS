@@ -3,6 +3,7 @@ import InsightsIcon from "@mui/icons-material/Insights";
 import Person3Icon from "@mui/icons-material/Person3";
 import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
 import { Box, Container, Grid, Typography } from "@mui/material";
+import images from "../../images/images.json";
 
 const sectionItems = [
   {
@@ -41,8 +42,7 @@ const Features = () => {
     <>
       <Box
         sx={{
-          backgroundImage:
-            "url(https://ik.imagekit.io/nwssoft/Payroll-portal/HRIS-Website/16351667_rm222batch5-kul-18.jpg?updatedAt=1708107623744)",
+          backgroundImage: `url(${images.featuresBackgroundImage.src})`,
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -72,6 +72,7 @@ const Features = () => {
               into a single unified platform, <br></br>saving you time to focus
               on your business. See what ADP services can do for you.
             </Typography>
+
             <Grid
               container
               sx={{
@@ -111,6 +112,7 @@ const Features = () => {
               ))}
             </Grid>
           </Box>
+
           <Box marginTop={10}>
             <Grid container spacing={1}>
               <Grid
@@ -153,12 +155,11 @@ const Features = () => {
                   training.
                 </Typography>
               </Grid>
+
               <Grid item xs={12} md={5}>
                 <img
-                  src={
-                    "https://ik.imagekit.io/nwssoft/Payroll-portal/6052389.jpg?updatedAt=1707475462371"
-                  }
-                  alt="Man-Standing-Pencil"
+                  src={`${images.featuresImage.src}`}
+                  alt={`${images.featuresImage.alt}`}
                   width="100%"
                 />
               </Grid>

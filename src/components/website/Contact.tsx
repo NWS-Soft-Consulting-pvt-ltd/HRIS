@@ -1,6 +1,7 @@
 import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { ContactUs } from "../interfaces/Interfaces";
+import images from "../../images/images.json";
 
 export default function Contact() {
   const [contactInfo, setContactInfo] = useState<ContactUs | undefined>(
@@ -73,8 +74,8 @@ export default function Contact() {
 
           <Grid item xs={12} md={7}>
             <img
-              src="https://ik.imagekit.io/nwssoft/Payroll-portal/portrait-businessman-talking-phone-office.jpg?updatedAt=1708062573342"
-              alt="man-sitting-with-laptop"
+              src={`${images.contactingImage.src}`}
+              alt={`${images.contactingImage.alt}`}
               width="100%"
               style={{ borderRadius: 10 }}
             />

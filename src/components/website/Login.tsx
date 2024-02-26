@@ -1,63 +1,38 @@
-// import { FC, Fragment } from "react";
-// import { LoginProps } from "../interfaces/Interfaces";
-// import { Button, Container, Typography } from "@mui/material";
-
-// const Login: FC<LoginProps> = ({ onLogin, isAuthenticated }) => {
-//   return (
-//     <Fragment>
-//       <Container sx={{ marginTop: 10 }}>
-//         {isAuthenticated ? (
-//           <Typography>You are already logged in.</Typography>
-//         ) : (
-//           <Button onClick={onLogin} color="info">
-//             Login
-//           </Button>
-//         )}
-//       </Container>
-//     </Fragment>
-//   );
-// };
-
-// export default Login;
-
-import { Button, Container, Grid, TextField, Typography } from "@mui/material";
-import axios from "axios";
-import { FormEvent, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
-import { LoginProps } from "../interfaces/Interfaces";
+import { Button, Container, Grid, TextField, Typography } from "@mui/material";
+import { FormEvent } from "react";
+import { ReactComponent as MicrosoftLogo } from "../../images/Microsoft-Logo.svg";
+import images from "../../images/images.json";
+import { LOGIN, LOGIN_MICROSOFT } from "../../api/Server";
+import { getRequest, postRequest } from "../../api/Api";
+import { AxiosError, AxiosResponse } from "axios";
 
-export default function Login({
-  isAuthenticated,
-  onLogin,
-}: LoginProps) {
-  const navigate = useNavigate();
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+export default function Login() {
+  const handleLoginWithMicrosoft = () => {
     try {
-      const data = new FormData(event.currentTarget);
-      let object = {
-        userName: data.get("userName"),
-        password: data.get("password"),
-      };
-      let result = await axios.post("http://localhost:4000/login", object);
-      if (result.data) {
-        alert(result.data.message);
-        sessionStorage.setItem("uid", result.data.uid);
-        navigate("/dashboard");
-      }
+      getRequest(LOGIN_MICROSOFT)
+        .then((response: AxiosResponse) => console.log(response.data))
+        .catch((error: AxiosError) => console.error(error));
     } catch (error) {
       console.error(error);
     }
   };
 
-  useEffect(() => {
-    let uid = sessionStorage.getItem("uid");
-    if (uid) {
-      navigate("/dashboard");
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      const data = new FormData(event.currentTarget);
+      let loginData = {
+        userName: data.get("userName"),
+        password: data.get("password"),
+      };
+      postRequest(LOGIN, "", loginData)
+        .then((response: AxiosResponse) => console.log(response?.data))
+        .catch((error: AxiosError) => console.error(error.response?.data));
+    } catch (error) {
+      console.error(error);
     }
-  }, [navigate]);
+  };
 
   return (
     <>
@@ -69,12 +44,13 @@ export default function Login({
             md={7}
             component="img"
             borderRadius={3}
-            src="https://ik.imagekit.io/nwssoft/Payroll-portal/office-4857268.jpg?updatedAt=1708092763714"
+            src={`${images.logingInImage.src}`}
+            alt={`${images.logingInImage.alt}`}
           ></Grid>
           <Grid item xs={12} md={5}>
             <Grid
               container
-              spacing={4}
+              spacing={2}
               padding={4}
               component="form"
               onSubmit={handleSubmit}
@@ -96,13 +72,14 @@ export default function Login({
               <Grid item xs={12}>
                 <TextField
                   required
+                  autoFocus
                   fullWidth
                   id="email"
                   size="medium"
                   name="userName"
                   label="User Name"
-                  autoComplete="userName"
-                  autoFocus
+                  type="email"
+                  autoComplete="username"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -116,6 +93,12 @@ export default function Login({
                   type="password"
                   autoComplete="current-password"
                 />
+              </Grid>
+              <Grid item xs={12}>
+                <MicrosoftLogo width={25} style={{ marginRight: 5 }} />
+                <Button onClick={handleLoginWithMicrosoft}>
+                  Continue with Microsoft
+                </Button>
               </Grid>
               <Grid item xs={12}>
                 <Button

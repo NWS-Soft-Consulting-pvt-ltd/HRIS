@@ -1,5 +1,6 @@
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import { Box, Grid, Typography } from "@mui/material";
+import images from "../../images/images.json";
 
 export default function Recruitment() {
   return (
@@ -69,16 +70,10 @@ export default function Recruitment() {
             sx={{ position: "relative", overflow: "hidden", borderRadius: 8 }}
           >
             <img
-              src={
-                "https://ik.imagekit.io/nwssoft/Payroll-portal/8292849.jpg?updatedAt=1706864576623"
-              }
-              alt="HR Recruitment"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                transition: "transform 0.3s ease-in-out",
-              }}
+              src={`${images.recruitmentLandingImage.src}`}
+              alt={`${images.recruitmentLandingImage.alt}`}
+              width="100%"
+              style={{ transition: "transform 0.3s ease-in-out" }}
               onMouseOver={(e) =>
                 (e.currentTarget.style.transform = "scale(1.1)")
               }
@@ -91,21 +86,14 @@ export default function Recruitment() {
         <Grid container spacing={1}>
           <Grid item xs={12} md={6}>
             <img
-              src={
-                "https://ik.imagekit.io/nwssoft/Payroll-portal/6976378_4565-removebg-preview.png?updatedAt=1708064985200"
-              }
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                transition: "transform 0.3s ease-in-out",
-              }}
+              src={`${images.recruitmentBusinessImage.src}`}
+              alt={`${images.recruitmentBusinessImage.alt}`}
+              width="100%"
+              style={{ transition: "transform 0.3s ease-in-out" }}
               onMouseOver={(e) =>
                 (e.currentTarget.style.transform = "scale(1.1)")
               }
               onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-              alt="HR Recruitment"
-              width="100%"
             />
           </Grid>
           <Grid
@@ -173,21 +161,14 @@ export default function Recruitment() {
 
           <Grid item xs={12} md={6}>
             <img
-              src={
-                "https://ik.imagekit.io/nwssoft/Payroll-portal/people-collaborating.png?updatedAt=1707743699185"
-              }
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                transition: "transform 0.3s ease-in-out",
-              }}
+              src={`${images.discussionImage.src}`}
+              alt={`${images.discussionImage.alt}`}
+              width="100%"
+              style={{ transition: "transform 0.3s ease-in-out" }}
               onMouseOver={(e) =>
                 (e.currentTarget.style.transform = "scale(1.1)")
               }
               onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-              alt="HR Recruitment"
-              width="100%"
             />
           </Grid>
         </Grid>

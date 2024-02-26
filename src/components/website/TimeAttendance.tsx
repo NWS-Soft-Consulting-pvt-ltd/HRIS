@@ -1,9 +1,9 @@
 import AddIcCallIcon from "@mui/icons-material/AddIcCall";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import { Container, Grid, Paper, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-
-import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import images from "../../images/images.json";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#2D4263" : "#2D4263",
@@ -63,8 +63,8 @@ export default function TimeAttendance() {
 
         <Grid item xs={12} md={5}>
           <img
-            src="https://ik.imagekit.io/nwssoft/Payroll-portal/12303817_4953029.jpg?updatedAt=1708098352278"
-            alt="man-sitting-with-laptop"
+            src={`${images.timeAttendanceImage.src}`}
+            alt={`${images.timeAttendanceImage.alt}`}
             width="100%"
             style={{ borderRadius: "15px 15px 15px 15px" }}
           />
@@ -128,8 +128,8 @@ export default function TimeAttendance() {
           </Typography>
           <Typography variant="body1" textAlign="center">
             Foster growth with effortless attendance management. Enhance
-            productivity, promote engagement & forge connections. Join us for
-            a brighter future, one attendance at a time.
+            productivity, promote engagement & forge connections. Join us for a
+            brighter future, one attendance at a time.
           </Typography>
         </Grid>
 
