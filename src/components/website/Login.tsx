@@ -1,33 +1,29 @@
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import { Button, Container, Grid, TextField, Typography } from "@mui/material";
-import { FormEvent } from "react";
-import { ReactComponent as MicrosoftLogo } from "../../images/Microsoft-Logo.svg";
-import images from "../../images/images.json";
-import { LOGIN, LOGIN_MICROSOFT } from "../../api/Server";
-import { getRequest, postRequest } from "../../api/Api";
 import { AxiosError, AxiosResponse } from "axios";
+import { FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import { postRequest } from "../../api/Api";
+import { LOGIN } from "../../api/Server";
+import images from "../../images/images.json";
 
 export default function Login() {
-  const handleLoginWithMicrosoft = () => {
-    try {
-      getRequest(LOGIN_MICROSOFT)
-        .then((response: AxiosResponse) => console.log(response.data))
-        .catch((error: AxiosError) => console.error(error));
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const navigate = useNavigate();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       const data = new FormData(event.currentTarget);
       let loginData = {
-        userName: data.get("userName"),
+        email: data.get("email"),
         password: data.get("password"),
       };
       postRequest(LOGIN, "", loginData)
-        .then((response: AxiosResponse) => console.log(response?.data))
+        .then((response: AxiosResponse) => {
+          if (response.data.message === "Login successful!") {
+            navigate("/dashboard");
+          }
+        })
         .catch((error: AxiosError) => console.error(error.response?.data));
     } catch (error) {
       console.error(error);
@@ -50,7 +46,7 @@ export default function Login() {
           <Grid item xs={12} md={5}>
             <Grid
               container
-              spacing={2}
+              spacing={4}
               padding={4}
               component="form"
               onSubmit={handleSubmit}
@@ -76,8 +72,8 @@ export default function Login() {
                   fullWidth
                   id="email"
                   size="medium"
-                  name="userName"
-                  label="User Name"
+                  name="email"
+                  label="Email"
                   type="email"
                   autoComplete="username"
                 />
@@ -93,12 +89,6 @@ export default function Login() {
                   type="password"
                   autoComplete="current-password"
                 />
-              </Grid>
-              <Grid item xs={12}>
-                <MicrosoftLogo width={25} style={{ marginRight: 5 }} />
-                <Button onClick={handleLoginWithMicrosoft}>
-                  Continue with Microsoft
-                </Button>
               </Grid>
               <Grid item xs={12}>
                 <Button
