@@ -24,7 +24,7 @@ export default function Login() {
             navigate("/dashboard");
           }
         })
-        .catch((error: AxiosError) => console.error(error.response?.data));
+        .catch((error: AxiosError) => alert(error.response?.data));
     } catch (error) {
       console.error(error);
     }
