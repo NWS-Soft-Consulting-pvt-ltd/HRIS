@@ -14,7 +14,6 @@ import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 import Link from "@mui/material/Link";
-import List from "@mui/material/List";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
@@ -28,8 +27,8 @@ import {
   createTheme,
   styled,
 } from "@mui/material/styles";
-import * as React from "react";
-import DasBoardFirst from "./DashBoardFirst";
+import { useState } from "react";
+import DashBoardFirst from "./DashBoardFirst";
 import { MainListItems } from "./ListItems";
 
 const settings = ["Profile", "Dashboard", "Logout"];
@@ -143,6 +142,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -153,32 +153,26 @@ const theme = createTheme({
     },
   },
 });
+
 export default function Dashboard() {
   const navigate = useNavigate();
 
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const [open, setOpen] = useState<boolean>(true);
 
-  const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
-
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
   const handleCloseUserMenu = (button: string) => {
     if (button === "Logout") navigate("/login");
     setAnchorElUser(null);
@@ -281,7 +275,9 @@ export default function Dashboard() {
             </IconButton>
           </Toolbar>
           <Divider />
-          <List component="nav"><MainListItems/></List>
+          {/* <List component="nav"> */}
+          <MainListItems />
+          {/* </List> */}
         </Drawer>
         <Box
           component="main"
@@ -298,7 +294,7 @@ export default function Dashboard() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid item xs={12} md={8} lg={9}>
-              <DasBoardFirst />
+              <DashBoardFirst />
             </Grid>
             <Copyright sx={{ pt: 8 }} />
           </Container>
