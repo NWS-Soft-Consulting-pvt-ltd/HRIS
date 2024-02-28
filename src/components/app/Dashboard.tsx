@@ -20,14 +20,13 @@ import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
-
 import {
   ThemeProvider,
   alpha,
   createTheme,
   styled,
 } from "@mui/material/styles";
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import DashBoardFirst from "./DashBoardFirst";
 import { MainListItems } from "./ListItems";
 
@@ -45,7 +44,7 @@ function Copyright(props: any) {
       <Link color="inherit" href="">
         SAWA HRIS
       </Link>
-      {new Date().getFullYear()}
+      {" " + new Date().getFullYear()}
       {"."}
     </Typography>
   );
@@ -131,7 +130,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   width: "100%",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     [theme.breakpoints.up("sm")]: {
@@ -145,12 +143,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: "#191970", // Change primary color of the theme
-    },
-    secondary: {
-      main: "#dc004e", // Change secondary color of the theme
-    },
+    primary: { main: "#191970" },
+    secondary: { main: "#dc004e" },
   },
 });
 
@@ -164,10 +158,10 @@ export default function Dashboard() {
   const toggleDrawer = () => {
     setOpen(!open);
   };
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
   const handleCloseNavMenu = () => {
@@ -182,6 +176,8 @@ export default function Dashboard() {
     <ThemeProvider theme={theme}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
+
+        {/* Appbar Code */}
         <AppBar position="absolute" open={open}>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
@@ -261,6 +257,7 @@ export default function Dashboard() {
           </Container>
         </AppBar>
 
+        {/* Drawer Code */}
         <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
@@ -275,10 +272,10 @@ export default function Dashboard() {
             </IconButton>
           </Toolbar>
           <Divider />
-          {/* <List component="nav"> */}
           <MainListItems />
-          {/* </List> */}
         </Drawer>
+
+        {/* Component Space */}
         <Box
           component="main"
           sx={{
