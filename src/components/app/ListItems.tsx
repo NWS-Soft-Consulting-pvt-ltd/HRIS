@@ -1,299 +1,119 @@
-import * as React from "react";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import BackpackIcon from "@mui/icons-material/Backpack";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import BusinessIcon from "@mui/icons-material/Business";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import GroupsIcon from "@mui/icons-material/Groups";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import PersonIcon from "@mui/icons-material/Person";
+import PersonSearchIcon from "@mui/icons-material/PersonSearch";
+import WorkIcon from "@mui/icons-material/Work";
+import { Collapse, List } from "@mui/material";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import BusinessIcon from "@mui/icons-material/Business";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import PersonIcon from "@mui/icons-material/Person";
-import AssignmentIcon from "@mui/icons-material/Assignment";
-import BackpackIcon from "@mui/icons-material/Backpack";
-import PaymentsIcon from "@mui/icons-material/Payments";
-import PersonSearchIcon from "@mui/icons-material/PersonSearch";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
-import { Collapse, List } from "@mui/material";
+import { Fragment, useState } from "react";
+import { SidebarItem, SidebarSubItem } from "../interfaces/Interfaces";
 
-// export const mainListItems = (
-//   <React.Fragment>
-//     <ListItemButton>
-//       <ListItemIcon>
-//         <DashboardIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="Dashboard" />
-//     </ListItemButton>
-//     {/* <ListItemButton>
-//       <ListItemIcon>
-//         <BusinessIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="Company Profile" />
-//     </ListItemButton> */}
+const mainList: SidebarItem[] = [
+  {
+    id: "dashboard",
+    name: "Dashboard",
+    subItem: false,
+    icon: <DashboardIcon />,
+  },
+  {
+    id: "companyProfile",
+    name: "Company",
+    subItem: false,
+    icon: <BusinessIcon />,
+  },
+  { id: "myProfile", name: "My Profile", subItem: true, icon: <PersonIcon /> },
+  { id: "directory", name: "Directory", subItem: true, icon: <BarChartIcon /> },
+  {
+    id: "attendance",
+    name: "Attendance",
+    subItem: true,
+    icon: <AssignmentIcon />,
+  },
+  { id: "leave", name: "Leave", subItem: true, icon: <BackpackIcon /> },
+  { id: "payroll", name: "Payroll", subItem: true, icon: <PaymentsIcon /> },
+  {
+    id: "recruitment",
+    name: "Recruitment",
+    subItem: true,
+    icon: <PersonSearchIcon />,
+  },
+];
 
-//     <ListItemButton onClick={()=>console.log("gjgj")}>
-//       <ListItemIcon>
-//         <BusinessIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="Company Profile" />
-//       {open.companyProfile ? <ExpandLess /> : <ExpandMore />}
-//     </ListItemButton>
-//     <Collapse in={open.companyProfile} timeout="auto" unmountOnExit>
-//       <List component="div" disablePadding>
-//         {/* {Dropdown.Reports.map((text2) => ( */}
-//           <ListItemButton>
-//             <ListItemIcon></ListItemIcon>
-//             <ListItemText/>
-//           </ListItemButton>
-//         {/* ))} */}
-//       </List>
-//     </Collapse>
-
-//     <ListItemButton>
-//       <ListItemIcon>
-//         <PersonIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="My Profile" />
-//     </ListItemButton>
-//     <ListItemButton>
-//       <ListItemIcon>
-//         <BarChartIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="Directory" />
-//     </ListItemButton>
-//     <ListItemButton>
-//       <ListItemIcon>
-//         <AssignmentIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="Attendance" />
-//     </ListItemButton>
-//     <ListItemButton>
-//       <ListItemIcon>
-//         <BackpackIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="Leave" />
-//     </ListItemButton>
-//     <ListItemButton>
-//       <ListItemIcon>
-//         <PaymentsIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="Payroll" />
-//     </ListItemButton>
-//     <ListItemButton>
-//       <ListItemIcon>
-//         <PersonSearchIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="Recuritment" />
-//     </ListItemButton>
-//   </React.Fragment>
-// );
+const subList: SidebarSubItem[] = [
+  {
+    id: "myProfile",
+    list: [
+      { id: "work", name: "Work", subItem: false, icon: <WorkIcon /> },
+      { id: "team", name: "Team", subItem: false, icon: <GroupsIcon /> },
+    ],
+  },
+];
 
 export const MainListItems = () => {
-  const [open, setOpen] = React.useState<Record<string, boolean>>({
-    companyProfile: false,
-  });
+  const [openCollapse, setOpenCollapse] = useState<string | null>(null);
+
+  const handleItemClick = (itemId: string, isSubList: boolean) => {
+    if (isSubList)
+      setOpenCollapse((prevItem) => (prevItem === itemId ? null : itemId));
+    else console.log("your logic for clicking on this button");
+  };
+
+  const handleSubItemButtonClick = () => {
+    console.log("your logic for clicking on this button");
+  };
 
   return (
-    <React.Fragment>
-      <ListItemButton>
-        <ListItemIcon>
-          <DashboardIcon />
-        </ListItemIcon>
-        <ListItemText primary="Dashboard" />
-      </ListItemButton>
-      {/* <ListItemButton>
-        <ListItemIcon>
-          <BusinessIcon />
-        </ListItemIcon>
-        <ListItemText primary="Company Profile" />
-      </ListItemButton> */}
-
-      <ListItemButton
-        onClick={() =>
-          setOpen((previousOpen) => ({
-            ...previousOpen,
-            companyProfile: true,
-          }))
-        }
-      >
-        <ListItemIcon>
-          <BusinessIcon />
-        </ListItemIcon>
-        <ListItemText primary="Company Profile" />
-        {open.companyProfile ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={open.companyProfile} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          {/* {Dropdown.Reports.map((text2) => ( */}
-          <ListItemButton>
-            <ListItemIcon></ListItemIcon>
-            <ListItemText primary="Address"/>
-          </ListItemButton>
-          {/* ))} */}
-        </List>
-      </Collapse>
-
-      <ListItemButton>
-        <ListItemIcon>
-          <PersonIcon />
-        </ListItemIcon>
-        <ListItemText primary="My Profile" />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemIcon>
-          <BarChartIcon />
-        </ListItemIcon>
-        <ListItemText primary="Directory" />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemIcon>
-          <AssignmentIcon />
-        </ListItemIcon>
-        <ListItemText primary="Attendance" />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemIcon>
-          <BackpackIcon />
-        </ListItemIcon>
-        <ListItemText primary="Leave" />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemIcon>
-          <PaymentsIcon />
-        </ListItemIcon>
-        <ListItemText primary="Payroll" />
-      </ListItemButton>
-      <ListItemButton>
-        <ListItemIcon>
-          <PersonSearchIcon />
-        </ListItemIcon>
-        <ListItemText primary="Recuritment" />
-      </ListItemButton>
-    </React.Fragment>
+    <Fragment>
+      <List component="nav">
+        {mainList.map((listItem: SidebarItem) => (
+          <Fragment key={listItem.id}>
+            <ListItemButton
+              onClick={() => handleItemClick(listItem.id, listItem.subItem)}
+            >
+              <ListItemIcon>{listItem.icon}</ListItemIcon>
+              <ListItemText primary={listItem.name} />
+              {listItem.subItem &&
+                (openCollapse === listItem.id ? (
+                  <ExpandLess />
+                ) : (
+                  <ExpandMore />
+                ))}
+            </ListItemButton>
+            {listItem.subItem && (
+              <Collapse
+                in={openCollapse === listItem.id}
+                timeout="auto"
+                unmountOnExit
+              >
+                <List component="div" disablePadding>
+                  {subList
+                    .find(
+                      (subListObject: SidebarSubItem) =>
+                        listItem.id === subListObject.id
+                    )
+                    ?.list.map((itemObject: SidebarItem) => (
+                      <ListItemButton
+                        key={itemObject.id}
+                        onClick={handleSubItemButtonClick}
+                      >
+                        <ListItemIcon>{itemObject.icon}</ListItemIcon>
+                        <ListItemText primary={itemObject.name} />
+                      </ListItemButton>
+                    ))}
+                </List>
+              </Collapse>
+            )}
+          </Fragment>
+        ))}
+      </List>
+    </Fragment>
   );
 };
-// // export const secondaryListItems = (
-// //   <React.Fragment>
-// //     <ListSubheader component="div" inset>
-// //       Saved reports
-// //     </ListSubheader>
-// //     <ListItemButton>
-// //       <ListItemIcon>
-// //         <AssignmentIcon />
-// //       </ListItemIcon>
-// //       <ListItemText primary="Current month" />
-// //     </ListItemButton>
-// //     <ListItemButton>
-// //       <ListItemIcon>
-// //         <AssignmentIcon />
-// //       </ListItemIcon>
-// //       <ListItemText primary="Last quarter" />
-// //     </ListItemButton>
-// //     <ListItemButton>
-// //       <ListItemIcon>
-// //         <AssignmentIcon />
-// //       </ListItemIcon>
-// //       <ListItemText primary="Year-end sale" />
-// //     </ListItemButton>
-// //   </React.Fragment>
-// // );
-
-// import * as React from 'react';
-// import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
-// import DashboardIcon from '@mui/icons-material/Dashboard';
-// import BusinessIcon from '@mui/icons-material/Business';
-// import BarChartIcon from '@mui/icons-material/BarChart';
-// import PersonIcon from '@mui/icons-material/Person';
-// import AssignmentIcon from '@mui/icons-material/Assignment';
-// import BackpackIcon from '@mui/icons-material/Backpack';
-// import PaymentsIcon from '@mui/icons-material/Payments';
-// import PersonSearchIcon from "@mui/icons-material/PersonSearch";
-// import Menu from "@mui/material/Menu";
-// import MenuItem from "@mui/material/MenuItem";
-// import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-
-// export const mainListItems = (
-//   <React.Fragment>
-//     <ListItemButton>
-//       <ListItemIcon>
-//         <DashboardIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="Dashboard" />
-//     </ListItemButton>
-//     <ListItemButton>
-//       <ListItemIcon>
-//         <BusinessIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="Company Profile" />
-//     </ListItemButton>
-//     <ListItemButton>
-//       <ListItemIcon>
-//         <PersonIcon />
-//       </ListItemIcon>
-//       <ListItemText primary="My Profile" />
-//     </ListItemButton>
-//     <MenuList /> {/* Add the MenuList here */}
-//   </React.Fragment>
-// );
-
-// function MenuList() {
-//   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-//   const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => {
-//     setAnchorEl(event.currentTarget);
-//   };
-
-//   const handleCloseMenu = () => {
-//     setAnchorEl(null);
-//   };
-
-//   return (
-//     <React.Fragment>
-//       <ListItemButton onClick={handleOpenMenu}>
-//         <ListItemIcon>
-//           <ArrowDropDownIcon />
-//         </ListItemIcon>
-//         <ListItemText primary="Directory" />
-//       </ListItemButton>
-//       <Menu
-//         id="directory-menu"
-//         anchorEl={anchorEl}
-//         open={Boolean(anchorEl)}
-//         onClose={handleCloseMenu}
-//         anchorOrigin={{
-//           vertical: 'bottom',
-//           horizontal: 'left',
-//         }}
-//         transformOrigin={{
-//           vertical: 'top',
-//           horizontal: 'left',
-//         }}
-//         MenuListProps={{ 'aria-labelledby': 'directory-menu' }}
-//       >
-//         <MenuItem>
-//           <ListItemIcon>
-//             <AssignmentIcon />
-//           </ListItemIcon>
-//           <ListItemText primary="Attendance" />
-//         </MenuItem>
-//         <MenuItem>
-//           <ListItemIcon>
-//             <BackpackIcon />
-//           </ListItemIcon>
-//           <ListItemText primary="Leave" />
-//         </MenuItem>
-//         <MenuItem>
-//           <ListItemIcon>
-//             <PaymentsIcon />
-//           </ListItemIcon>
-//           <ListItemText primary="Payroll" />
-//         </MenuItem>
-//         <MenuItem>
-//           <ListItemIcon>
-//             <PersonSearchIcon />
-//           </ListItemIcon>
-//           <ListItemText primary="Recruitment" />
-//         </MenuItem>
-//       </Menu>
-//     </React.Fragment>
-//   );
-// }

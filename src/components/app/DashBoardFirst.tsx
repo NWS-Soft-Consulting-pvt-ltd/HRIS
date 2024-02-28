@@ -1,14 +1,12 @@
-import { Box, Container, Paper, Typography } from "@mui/material";
-import React from "react";
-import FolderSharedIcon from "@mui/icons-material/FolderShared";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
-import CurrencyRubleIcon from "@mui/icons-material/CurrencyRuble";
+import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import CurrencyRubleIcon from "@mui/icons-material/CurrencyRuble";
+import Diversity3Icon from "@mui/icons-material/Diversity3";
+import DomainAddRoundedIcon from "@mui/icons-material/DomainAddRounded";
+import FolderSharedIcon from "@mui/icons-material/FolderShared";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
-import DomainAddRoundedIcon from '@mui/icons-material/DomainAddRounded';
-import Diversity3Icon from '@mui/icons-material/Diversity3';
-import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
+import { Box, Container, Paper, Typography } from "@mui/material";
 
 export default function DashBoardFirst() {
   return (
@@ -32,7 +30,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent:"center",
+            justifyContent: "center",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -44,7 +42,12 @@ export default function DashBoardFirst() {
               color: "#839898",
             }}
           />
-          <Typography variant="body1" color="#344955" fontWeight="550" textAlign="center">
+          <Typography
+            variant="body1"
+            color="#344955"
+            fontWeight="550"
+            textAlign="center"
+          >
             Company Profile
           </Typography>
         </Paper>
@@ -54,7 +57,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent:"center",
+            justifyContent: "center",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -66,7 +69,12 @@ export default function DashBoardFirst() {
               color: "#0080ff",
             }}
           />
-          <Typography variant="body1" color="#344955" fontWeight="550" textAlign="center">
+          <Typography
+            variant="body1"
+            color="#344955"
+            fontWeight="550"
+            textAlign="center"
+          >
             My Profile
           </Typography>
         </Paper>
@@ -76,8 +84,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent:"center",
-          
+            justifyContent: "center",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -87,10 +94,14 @@ export default function DashBoardFirst() {
               display: "block",
               fontSize: "3rem",
               color: "#B5B86B",
-           
             }}
           />
-          <Typography variant="body1" color="#344955" fontWeight="550" textAlign="center">
+          <Typography
+            variant="body1"
+            color="#344955"
+            fontWeight="550"
+            textAlign="center"
+          >
             Directory
           </Typography>
         </Paper>
@@ -100,7 +111,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent:"center",
+            justifyContent: "center",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -112,12 +123,15 @@ export default function DashBoardFirst() {
               color: "Purple",
             }}
           />
-          <Typography variant="body1" color="#344955" fontWeight="550" textAlign="center">
+          <Typography
+            variant="body1"
+            color="#344955"
+            fontWeight="550"
+            textAlign="center"
+          >
             Attendance
           </Typography>
         </Paper>
-
-       
       </Box>
       <Box
         sx={{
@@ -132,13 +146,13 @@ export default function DashBoardFirst() {
           },
         }}
       >
-         <Paper
+        <Paper
           elevation={3}
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent:"center",
+            justifyContent: "center",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -150,7 +164,12 @@ export default function DashBoardFirst() {
               color: "#ff8000",
             }}
           />
-          <Typography variant="body1" color="#344955" fontWeight="550" textAlign="center">
+          <Typography
+            variant="body1"
+            color="#344955"
+            fontWeight="550"
+            textAlign="center"
+          >
             Calender
           </Typography>
         </Paper>
@@ -160,7 +179,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent:"center",
+            justifyContent: "center",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -172,7 +191,12 @@ export default function DashBoardFirst() {
               color: "green",
             }}
           />
-          <Typography variant="body1" color="#344955" fontWeight="550" textAlign="center">
+          <Typography
+            variant="body1"
+            color="#344955"
+            fontWeight="550"
+            textAlign="center"
+          >
             Leave
           </Typography>
         </Paper>
@@ -182,7 +206,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent:"center",
+            justifyContent: "center",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -194,7 +218,12 @@ export default function DashBoardFirst() {
               color: "#211C6A",
             }}
           />
-          <Typography variant="body1" color="#344955" fontWeight="550" textAlign="center">
+          <Typography
+            variant="body1"
+            color="#344955"
+            fontWeight="550"
+            textAlign="center"
+          >
             Payroll
           </Typography>
         </Paper>
@@ -205,7 +234,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent:"center",
+            justifyContent: "center",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -217,7 +246,12 @@ export default function DashBoardFirst() {
               color: "#561C24",
             }}
           />
-          <Typography variant="body1" color="#344955" fontWeight="550" textAlign="center">
+          <Typography
+            variant="body1"
+            color="#344955"
+            fontWeight="550"
+            textAlign="center"
+          >
             Recruitment
           </Typography>
         </Paper>
