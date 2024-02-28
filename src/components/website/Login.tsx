@@ -20,7 +20,7 @@ export default function Login() {
       };
       postRequest(LOGIN, "", loginData)
         .then((response: AxiosResponse) => {
-          if (response.data.message === "Login successful!") {
+          if (response.status === 200) {
             navigate("/dashboard");
           }
         })
