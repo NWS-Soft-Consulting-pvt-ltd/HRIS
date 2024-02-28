@@ -30,7 +30,7 @@ import {
 } from "@mui/material/styles";
 import * as React from "react";
 import DasBoardFirst from "./DashBoardFirst";
-import { mainListItems } from "./ListItems";
+import { MainListItems } from "./ListItems";
 
 const settings = ["Profile", "Dashboard", "Logout"];
 
@@ -281,7 +281,7 @@ export default function Dashboard() {
             </IconButton>
           </Toolbar>
           <Divider />
-          <List component="nav">{mainListItems}</List>
+          <List component="nav"><MainListItems/></List>
         </Drawer>
         <Box
           component="main"
