@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface RouteComponent {
   path: string;
   component: JSX.Element;
@@ -21,4 +23,10 @@ export interface SidebarItem {
 export interface SidebarSubItem {
   id: string;
   list: SidebarItem[];
+}
+
+export interface TabPanelProps {
+  children: ReactNode;
+  value: any;
+  index: any;
 }
