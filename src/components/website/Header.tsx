@@ -155,7 +155,7 @@ export default function Header() {
     setAnchorEl(null);
   };
 
-  const handleMenuItemClick = (path: string | undefined) => {
+  const handleMenuItemClick = (path?: string) => {
     setAnchorEl(null);
     path && navigate(path);
   };

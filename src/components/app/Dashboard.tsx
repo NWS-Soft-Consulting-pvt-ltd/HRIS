@@ -1,3 +1,5 @@
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
@@ -22,12 +24,9 @@ import {
   styled,
 } from "@mui/material/styles";
 import { MouseEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { MainListItems } from "./ListItems";
-import MainDashboard from "./MainDashboard";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { Outlet, useNavigate } from "react-router-dom";
 import { MenuObject } from "../interfaces/Interfaces";
+import { MainListItems } from "./ListItems";
 
 const MenuList: MenuObject[] = [
   { name: "Profile", icon: <AccountCircleIcon /> },
@@ -280,7 +279,7 @@ export default function Dashboard() {
         >
           <Toolbar />
           <Container maxWidth="lg">
-            <MainDashboard />
+            <Outlet />
             <Copyright mt={5} />
           </Container>
         </Box>
