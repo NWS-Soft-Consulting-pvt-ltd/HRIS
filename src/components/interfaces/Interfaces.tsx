@@ -30,3 +30,9 @@ export interface TabPanelProps {
   value: any;
   index: any;
 }
+
+export interface MenuObject {
+  name: string;
+  icon: JSX.Element;
+  path?: string;
+}
