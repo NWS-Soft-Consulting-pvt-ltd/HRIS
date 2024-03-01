@@ -18,6 +18,7 @@ export interface SidebarItem {
   name: string;
   subItem: boolean;
   icon: JSX.Element;
+  path?: string;
 }
 
 export interface SidebarSubItem {
