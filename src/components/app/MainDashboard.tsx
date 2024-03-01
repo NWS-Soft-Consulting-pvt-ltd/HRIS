@@ -6,17 +6,18 @@ import Diversity3Icon from "@mui/icons-material/Diversity3";
 import DomainAddRoundedIcon from "@mui/icons-material/DomainAddRounded";
 import FolderSharedIcon from "@mui/icons-material/FolderShared";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
-import { Box, Container, Paper, Typography } from "@mui/material";
+import { Container, Grid, Paper, Typography } from "@mui/material";
 
-export default function DashBoardFirst() {
+export default function MainDashboard() {
   return (
     <Container fixed>
-      <Box
+      <Grid
+        container
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-
+          mt: 3,
           "& > :not(style)": {
             m: 2,
             width: 150,
@@ -30,7 +31,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -57,7 +58,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -84,7 +85,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -111,7 +112,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -132,13 +133,13 @@ export default function DashBoardFirst() {
             Attendance
           </Typography>
         </Paper>
-      </Box>
-      <Box
+      </Grid>
+      <Grid
+        container
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-
           "& > :not(style)": {
             m: 2,
             width: 150,
@@ -152,7 +153,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -179,7 +180,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -206,7 +207,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -234,7 +235,7 @@ export default function DashBoardFirst() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
           }}
           onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -255,7 +256,7 @@ export default function DashBoardFirst() {
             Recruitment
           </Typography>
         </Paper>
-      </Box>
+      </Grid>
     </Container>
   );
 }

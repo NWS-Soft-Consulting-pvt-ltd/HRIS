@@ -25,7 +25,7 @@ import { Collapse, List } from "@mui/material";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { Fragment, useState } from "react";
+import { FC, Fragment, useState } from "react";
 import { SidebarItem, SidebarSubItem } from "../interfaces/Interfaces";
 
 const mainList: SidebarItem[] = [
@@ -160,7 +160,7 @@ const subList: SidebarSubItem[] = [
   },
 ];
 
-export const MainListItems = () => {
+export const MainListItems: FC = () => {
   const [openCollapse, setOpenCollapse] = useState<string | null>(null);
 
   const handleItemClick = (itemId: string, isSubList: boolean) => {
