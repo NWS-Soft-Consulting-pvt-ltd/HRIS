@@ -1,4 +1,4 @@
-import Dashboard from "../components/app/Dashboard";
+import CompanyProfile from "../components/app/CompanyProfile";
 import { RouteComponent } from "../components/interfaces/Interfaces";
 import About from "../components/website/About";
 import Contact from "../components/website/Contact";
@@ -23,5 +23,5 @@ export const websiteRoutes: RouteComponent[] = [
 
 // app routes
 export const appRoutes: RouteComponent[] = [
-  { path: "/dashboard", component: <Dashboard /> },
+  { path: "/dashboard/company-profile", component: <CompanyProfile /> },
 ];

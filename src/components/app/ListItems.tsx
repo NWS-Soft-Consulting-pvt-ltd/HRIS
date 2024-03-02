@@ -25,7 +25,8 @@ import { Collapse, List } from "@mui/material";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { Fragment, useState } from "react";
+import { FC, Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { SidebarItem, SidebarSubItem } from "../interfaces/Interfaces";
 
 const mainList: SidebarItem[] = [
@@ -34,12 +35,14 @@ const mainList: SidebarItem[] = [
     name: "Dashboard",
     subItem: false,
     icon: <DashboardIcon />,
+    path: "/dashboard",
   },
   {
     id: "companyProfile",
     name: "Company Profile",
-    subItem: true,
+    subItem: false,
     icon: <BusinessIcon />,
+    path: "company-profile",
   },
   { id: "myProfile", name: "My Profile", subItem: true, icon: <PersonIcon /> },
   {
@@ -65,18 +68,6 @@ const mainList: SidebarItem[] = [
 ];
 
 const subList: SidebarSubItem[] = [
-  {
-    id: "companyProfile",
-    list: [
-      { id: "address", name: "Address", subItem: false, icon: <WorkIcon /> },
-      {
-        id: "policies",
-        name: "Policies",
-        subItem: false,
-        icon: <GroupsIcon />,
-      },
-    ],
-  },
   {
     id: "myProfile",
     list: [
@@ -160,13 +151,18 @@ const subList: SidebarSubItem[] = [
   },
 ];
 
-export const MainListItems = () => {
+export const MainListItems: FC = () => {
+  const navigate = useNavigate();
   const [openCollapse, setOpenCollapse] = useState<string | null>(null);
 
-  const handleItemClick = (itemId: string, isSubList: boolean) => {
+  const handleItemClick = (
+    itemId: string,
+    isSubList: boolean,
+    path?: string
+  ) => {
     if (isSubList)
       setOpenCollapse((prevItem) => (prevItem === itemId ? null : itemId));
-    else console.log("your logic for clicking on this button");
+    else path && navigate(path);
   };
 
   const handleSubItemButtonClick = () => {
@@ -179,7 +175,9 @@ export const MainListItems = () => {
         {mainList.map((listItem: SidebarItem) => (
           <Fragment key={listItem.id}>
             <ListItemButton
-              onClick={() => handleItemClick(listItem.id, listItem.subItem)}
+              onClick={() =>
+                handleItemClick(listItem.id, listItem.subItem, listItem.path)
+              }
             >
               <ListItemIcon>{listItem.icon}</ListItemIcon>
               <ListItemText primary={listItem.name} />

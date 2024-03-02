@@ -1,5 +1,7 @@
 import { FC, Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from "../components/app/Dashboard";
+import MainDashboard from "../components/app/MainDashboard";
 import { RouteComponent } from "../components/interfaces/Interfaces";
 import Home from "../components/website/Home";
 import Layout from "../components/website/Layout";
@@ -24,15 +26,18 @@ const AppRouter: FC = () => {
               )
             )}
           </Route>
-          {appRoutes.map((componentObject: RouteComponent, index: number) => (
-            <Fragment key={index}>
-              <Route
-                caseSensitive
-                path={componentObject.path.toLowerCase()}
-                element={componentObject.component}
-              />
-            </Fragment>
-          ))}
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route index element={<MainDashboard />} />
+            {appRoutes.map((componentObject: RouteComponent, index: number) => (
+              <Fragment key={index}>
+                <Route
+                  caseSensitive
+                  path={componentObject.path.toLowerCase()}
+                  element={componentObject.component}
+                />
+              </Fragment>
+            ))}
+          </Route>
         </Routes>
       </BrowserRouter>
     </Fragment>

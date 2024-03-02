@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface RouteComponent {
   path: string;
   component: JSX.Element;
@@ -16,9 +18,22 @@ export interface SidebarItem {
   name: string;
   subItem: boolean;
   icon: JSX.Element;
+  path?: string;
 }
 
 export interface SidebarSubItem {
   id: string;
   list: SidebarItem[];
+}
+
+export interface TabPanelProps {
+  children: ReactNode;
+  value: any;
+  index: any;
+}
+
+export interface MenuObject {
+  name: string;
+  icon: JSX.Element;
+  path?: string;
 }

@@ -1,5 +1,9 @@
 import LockOpenIcon from "@mui/icons-material/LockOpen";
+import ManIcon from "@mui/icons-material/Man";
 import MenuIcon from "@mui/icons-material/Menu";
+import PaymentIcon from "@mui/icons-material/Payment";
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import { Fade, Menu, MenuItem, Stack } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -18,6 +22,7 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import { MouseEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { MenuObject } from "../interfaces/Interfaces";
 
 const drawerWidth = 200;
 let HEAD_COLOR = "#F5F5F5";
@@ -33,11 +38,15 @@ const navItems = [
   { name: "log in", path: "/login", endIcon: <LockOpenIcon /> },
 ];
 
-const menuItems = [
-  { name: "Payroll Services", path: "/payroll" },
-  { name: "Recruitment Services", path: "/recruitment" },
-  { name: "HR Management", path: "/hr-management" },
-  { name: "Time & Attendance", path: "/time-attendance" },
+const menuItems: MenuObject[] = [
+  { name: "Payroll Services", path: "/payroll", icon: <PaymentIcon /> },
+  { name: "Recruitment Services", path: "/recruitment", icon: <ManIcon /> },
+  { name: "HR Management", path: "/hr-management", icon: <PeopleAltIcon /> },
+  {
+    name: "Time & Attendance",
+    path: "/time-attendance",
+    icon: <PendingActionsIcon />,
+  },
 ];
 
 const LogoImg = styled("img")(({ theme }) => ({
@@ -146,9 +155,9 @@ export default function Header() {
     setAnchorEl(null);
   };
 
-  const handleMenuItemClick = (path: string) => {
+  const handleMenuItemClick = (path?: string) => {
     setAnchorEl(null);
-    navigate(path);
+    path && navigate(path);
   };
 
   const handleDrawerToggle = () => {
@@ -332,12 +341,15 @@ export default function Header() {
                       onClose={handleClose}
                       TransitionComponent={Fade}
                     >
-                      {menuItems.map((item, index: number) => (
+                      {menuItems.map((item: MenuObject, index: number) => (
                         <MenuItem
                           key={index}
                           onClick={() => handleMenuItemClick(item.path)}
                         >
-                          {item.name}
+                          {item.icon}
+                          <Typography textAlign="center" marginLeft={2}>
+                            {item.name}
+                          </Typography>
                         </MenuItem>
                       ))}
                     </Menu>

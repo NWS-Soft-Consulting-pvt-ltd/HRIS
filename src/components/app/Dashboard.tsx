@@ -1,4 +1,5 @@
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
@@ -7,30 +8,30 @@ import Avatar from "@mui/material/Avatar";
 import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import MuiDrawer from "@mui/material/Drawer";
-import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 import Link from "@mui/material/Link";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import { useNavigate } from "react-router-dom";
 import {
   ThemeProvider,
   alpha,
   createTheme,
   styled,
 } from "@mui/material/styles";
-import { useState, MouseEvent } from "react";
-import DashBoardFirst from "./DashBoardFirst";
+import { MouseEvent, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { MenuObject } from "../interfaces/Interfaces";
 import { MainListItems } from "./ListItems";
 
-const settings = ["Profile", "Dashboard", "Logout"];
+const MenuList: MenuObject[] = [
+  { name: "Profile", icon: <AccountCircleIcon /> },
+  { name: "Logout", icon: <ExitToAppIcon /> },
+];
 
 function Copyright(props: any) {
   return (
@@ -153,7 +154,7 @@ export default function Dashboard() {
 
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const [open, setOpen] = useState<boolean>(true);
+  const [open, setOpen] = useState<boolean>(false);
 
   const toggleDrawer = () => {
     setOpen(!open);
@@ -175,102 +176,90 @@ export default function Dashboard() {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-
         {/* Appbar Code */}
         <AppBar position="absolute" open={open}>
           <Container maxWidth="xl">
-            <Toolbar disableGutters>
+            <Toolbar>
+              {/* drawer toggler */}
               <IconButton
                 edge="start"
                 color="inherit"
                 aria-label="open drawer"
                 onClick={toggleDrawer}
-                sx={{
-                  marginRight: "36px",
-                  ...(open && { display: "none" }),
-                }}
+                sx={{ mr: "36px" }}
               >
                 <MenuIcon />
               </IconButton>
+
+              {/* app bar text */}
               <Typography
                 variant="h6"
                 noWrap
-                sx={{
-                  flexGrow: 1,
-                  fontFamily: "monospace",
-                  fontWeight: 800,
-                  letterSpacing: ".5rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
+                flexGrow={1}
+                fontWeight={530}
+                letterSpacing={4}
               >
                 SAWA HRIS
               </Typography>
-              <Box sx={{ display: "flex", alignItems: "center" }}>
-                <Search>
-                  <SearchIconWrapper>
-                    <SearchIcon />
-                  </SearchIconWrapper>
-                  <StyledInputBase
-                    placeholder="Search…"
-                    inputProps={{ "aria-label": "search" }}
-                  />
-                </Search>
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, ml: 4 }}>
-                    <Avatar alt="HR" src="/static/images/avatar/2.jpg" />
-                  </IconButton>
-                </Tooltip>
-                <IconButton color="inherit" sx={{ ml: 1 }}>
-                  <Badge badgeContent={4} color="secondary">
-                    <NotificationsIcon />
-                  </Badge>
-                </IconButton>
-                <Menu
-                  sx={{ mt: "45px" }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  {settings.map((setting) => (
-                    <MenuItem
-                      key={setting}
-                      onClick={() => handleCloseUserMenu(setting)}
-                    >
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </Box>
+
+              {/* search bar */}
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Employee.."
+                  inputProps={{ "aria-label": "search" }}
+                />
+              </Search>
+
+              {/* notification icon */}
+              <IconButton color="inherit" sx={{ ml: "18px" }}>
+                <Badge badgeContent={4} color="info">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+
+              {/* profile button */}
+              <IconButton onClick={handleOpenUserMenu} sx={{ ml: "18px" }}>
+                <Avatar alt="Name" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {MenuList.map((menuItem: MenuObject, index: number) => (
+                  <MenuItem
+                    key={index}
+                    onClick={() => handleCloseUserMenu(menuItem.name)}
+                  >
+                    {menuItem.icon}
+                    <Typography textAlign="center" marginLeft={2}>
+                      {menuItem.name}
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
             </Toolbar>
           </Container>
         </AppBar>
 
         {/* Drawer Code */}
         <Drawer variant="permanent" open={open}>
-          <Toolbar
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
-              px: [1],
-            }}
-          >
-            <IconButton onClick={toggleDrawer}>
-              <ChevronLeftIcon />
-            </IconButton>
-          </Toolbar>
+          <Toolbar>Your Logo Here</Toolbar>
           <Divider />
           <MainListItems />
         </Drawer>
@@ -289,11 +278,9 @@ export default function Dashboard() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid item xs={12} md={8} lg={9}>
-              <DashBoardFirst />
-            </Grid>
-            <Copyright sx={{ pt: 8 }} />
+          <Container maxWidth="lg">
+            <Outlet />
+            <Copyright mt={5} />
           </Container>
         </Box>
       </Box>
