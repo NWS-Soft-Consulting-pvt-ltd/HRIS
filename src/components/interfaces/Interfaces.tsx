@@ -1,3 +1,4 @@
+import { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { ReactNode } from "react";
 
 export interface RouteComponent {
@@ -36,4 +37,8 @@ export interface MenuObject {
   name: string;
   icon: JSX.Element;
   path?: string;
+}
+
+export interface AppBarProps extends MuiAppBarProps {
+  open?: boolean;
 }

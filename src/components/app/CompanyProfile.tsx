@@ -1,9 +1,9 @@
+import { AppBar, Tab, Tabs } from "@mui/material";
 import React, { useState } from "react";
-import { Container, Typography, Tab, Tabs, AppBar } from "@mui/material";
-import TabPanel from "./TabPanel";
-import Overview from "./Overview";
 import CompanyAddress from "./CompanyAddress";
 import CompanyPolicies from "./CompanyPolicies";
+import Overview from "./Overview";
+import TabPanel from "./TabPanel";
 
 export default function CompanyProfile() {
   const [value, setValue] = useState(0);
@@ -13,18 +13,9 @@ export default function CompanyProfile() {
   };
 
   return (
-    <Container>
-      <AppBar
-        position="relative"
-        sx={{ backgroundColor: "#201658", textAlign: "center" }}
-      >
-        <Typography
-          variant="h6"
-          sx={{ color: "white", textTransform: "upperCase" }}
-        >
-          Company Profile
-        </Typography>
-        <Tabs value={value} onChange={handleTabs} centered>
+    <>
+      <AppBar position="relative" sx={{ mt: 2 }}>
+        <Tabs textColor="inherit" value={value} onChange={handleTabs} centered>
           <Tab label="Overview" sx={{ color: "white" }} />
           <Tab label="Address" sx={{ color: "white" }} />
           <Tab label="Policies" sx={{ color: "white" }} />
@@ -39,6 +30,6 @@ export default function CompanyProfile() {
       <TabPanel value={value} index={2}>
         <CompanyPolicies />
       </TabPanel>
-    </Container>
+    </>
   );
 }
