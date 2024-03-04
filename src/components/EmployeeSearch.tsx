@@ -139,7 +139,7 @@ const rows = [
   ),
 ];
 
-export default function Home() {
+export default function EmployeeSearch() {
   const [open, setOpen] = React.useState(false);
 
   // const handleChange = (event) => {
