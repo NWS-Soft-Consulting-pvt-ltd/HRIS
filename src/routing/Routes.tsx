@@ -1,4 +1,5 @@
 import CompanyProfile from "../components/app/CompanyProfile";
+import EducationInfo from "../components/app/EducationInfo";
 import { RouteComponent } from "../components/interfaces/Interfaces";
 import About from "../components/website/About";
 import Contact from "../components/website/Contact";
@@ -24,4 +25,5 @@ export const websiteRoutes: RouteComponent[] = [
 // app routes
 export const appRoutes: RouteComponent[] = [
   { path: "/dashboard/company-profile", component: <CompanyProfile /> },
+  { path: "/dashboard/educational-details", component: <EducationInfo /> },
 ];

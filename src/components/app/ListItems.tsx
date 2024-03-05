@@ -78,6 +78,7 @@ const subList: SidebarSubItem[] = [
         name: "Education",
         subItem: false,
         icon: <SchoolIcon />,
+        path: "educational-details",
       },
       {
         id: "family",
@@ -165,8 +166,8 @@ export const MainListItems: FC = () => {
     else path && navigate(path);
   };
 
-  const handleSubItemButtonClick = () => {
-    console.log("your logic for clicking on this button");
+  const handleSubItemButtonClick = (path?: string) => {
+    path && navigate(path);
   };
 
   return (
@@ -203,7 +204,9 @@ export const MainListItems: FC = () => {
                     ?.list.map((itemObject: SidebarItem) => (
                       <ListItemButton
                         key={itemObject.id}
-                        onClick={handleSubItemButtonClick}
+                        onClick={() =>
+                          handleSubItemButtonClick(itemObject.path)
+                        }
                       >
                         <ListItemIcon>{itemObject.icon}</ListItemIcon>
                         <ListItemText primary={itemObject.name} />
