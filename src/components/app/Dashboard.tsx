@@ -61,22 +61,17 @@ const theme = createTheme({
 export default function Dashboard() {
   const navigate = useNavigate();
 
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const [open, setOpen] = useState<boolean>(false);
 
   const toggleDrawer = () => {
     setOpen(!open);
   };
-  const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
+
   const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+
   const handleCloseUserMenu = (button: string) => {
     if (button === "Logout") navigate("/login");
     setAnchorElUser(null);

@@ -42,3 +42,11 @@ export interface MenuObject {
 export interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
+
+export interface ErrorBoundaryProps {
+  children: ReactNode;
+}
+
+export interface ErrorBoundaryState {
+  hasError: boolean;
+}
