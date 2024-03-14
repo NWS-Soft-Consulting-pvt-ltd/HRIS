@@ -14,7 +14,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { Theme, ThemeProvider, createTheme } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 import { FC, MouseEvent, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { MenuObject } from "../interfaces/Interfaces";
@@ -58,8 +59,24 @@ const theme = createTheme({
   },
 });
 
+const useStyles = makeStyles((theme: Theme) => ({
+  main: { display: "flex" },
+  menuList: { marginTop: "45px" },
+  content: {
+    backgroundColor: "#F5F5F5",
+    flexGrow: 1,
+    height: "100vh",
+    overflow: "auto",
+  },
+  logo: {
+    height: 60,
+    marginLeft: 40,
+  },
+}));
+
 export default function Dashboard() {
   const navigate = useNavigate();
+  const classes = useStyles();
 
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const [open, setOpen] = useState<boolean>(false);
@@ -81,28 +98,22 @@ export default function Dashboard() {
     <>
       <ThemeProvider theme={theme}>
         {/* Container for the entire content */}
-        <Box sx={{ display: "flex" }}>
+        <Box className={classes.main}>
           {/* Drawer Code */}
           <Drawer variant="permanent" open={open}>
-            <Toolbar>{/* add logo here */}</Toolbar>
+            <Toolbar>
+              <img
+                src={`${process.env.PUBLIC_URL}/SAWA-HRIS.png`}
+                alt="SAWA_HRIS_Logo"
+                className={classes.logo}
+              ></img>
+            </Toolbar>
             <Divider />
             <MainListItems />
           </Drawer>
 
           {/* Main content container */}
-          <Container
-            component="main"
-            maxWidth="xl"
-            sx={{
-              backgroundColor: (theme) =>
-                theme.palette.mode === "light"
-                  ? theme.palette.grey[100]
-                  : theme.palette.grey[900],
-              flexGrow: 1,
-              height: "100vh",
-              overflow: "auto",
-            }}
-          >
+          <Container component="main" maxWidth="xl" className={classes.content}>
             {/* Appbar Code */}
             <AppBar position="absolute" open={open}>
               <Container maxWidth="xl">
@@ -113,7 +124,6 @@ export default function Dashboard() {
                     color="inherit"
                     aria-label="open drawer"
                     onClick={toggleDrawer}
-                    sx={{ mr: "36px" }}
                   >
                     <MenuIcon />
                   </IconButton>
@@ -124,9 +134,10 @@ export default function Dashboard() {
                     noWrap
                     flexGrow={1}
                     fontWeight={530}
-                    letterSpacing={4}
+                    letterSpacing={5}
+                    marginLeft={5}
                   >
-                    SAWA HRIS
+                    SAWA HR TECHNOLOGIES
                   </Typography>
 
                   {/* search bar */}
@@ -141,32 +152,26 @@ export default function Dashboard() {
                   </Search>
 
                   {/* notification icon */}
-                  <IconButton color="inherit" sx={{ ml: "18px" }}>
+                  <IconButton color="inherit" sx={{ mx: "18px" }}>
                     <Badge badgeContent={4} color="info">
                       <NotificationsIcon />
                     </Badge>
                   </IconButton>
 
                   {/* profile button */}
-                  <IconButton onClick={handleOpenUserMenu} sx={{ ml: "18px" }}>
+                  <IconButton onClick={handleOpenUserMenu}>
                     <Avatar alt="Name" src="/static/images/avatar/2.jpg" />
                   </IconButton>
 
                   <Menu
-                    sx={{ mt: "45px" }}
+                    keepMounted
                     id="menu-appbar"
                     anchorEl={anchorElUser}
-                    anchorOrigin={{
-                      vertical: "top",
-                      horizontal: "right",
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "right",
-                    }}
+                    className={classes.menuList}
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
+                    anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                    transformOrigin={{ vertical: "top", horizontal: "right" }}
                   >
                     {MenuList.map((menuItem: MenuObject, index: number) => (
                       <MenuItem
