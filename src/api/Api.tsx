@@ -9,6 +9,7 @@ const getInitialized = (
   params?: Record<string, string> | undefined
 ): AxiosInstance => {
   return axios.create({
+    withCredentials: true,
     baseURL: process.env.REACT_APP_BASE_SERVER_URL,
     params: params ? params : undefined,
     headers: { "Content-Type": contentType ? contentType : "application/json" },

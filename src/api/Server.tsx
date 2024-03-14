@@ -1,5 +1,7 @@
 // REST-API Endpoints
 
-// login
-export const LOGIN: string = "/user/api/login";
-export const SIGNUP: string = "/user/api/signup";
+// public routes
+export const LOGIN: string = "/api/public/user/login";
+export const SIGNUP: string = "/api/public/user/signup";
+
+// protected routes
