@@ -1,28 +1,21 @@
-import { Container, Divider, Grid, Paper, Typography } from "@mui/material";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import { Divider, Grid, Paper, Typography } from "@mui/material";
 
 export default function Overview() {
   return (
-    <Container fixed sx={{ marginTop: "30px" }}>
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <>
+      <Grid container spacing={2} marginTop="20px">
         <Grid item xs={12}>
           <Paper elevation={3} sx={{ padding: "20px", textAlign: "initial" }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <Typography
-                  variant="h6"
+                  variant="body1"
                   textTransform="uppercase"
                   color="#936c6c"
+                  fontWeight="bold"
                 >
                   Overview
                 </Typography>
@@ -32,70 +25,61 @@ export default function Overview() {
                 />
               </Grid>
               <Grid item xs={6} md={6}>
-                <Typography variant="body1">Registered Company Name</Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: "13px", color: "#808080" }}
-                >
+                <Typography variant="body2" fontWeight="bold">
+                  Registered Company Name
+                </Typography>
+                <Typography variant="body2" color="#808080">
                   NWS Soft Consulting Pvt Ltd
                 </Typography>
               </Grid>
               <Grid item xs={6} md={6}>
-                <Typography variant="body1">Brand Name</Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: "13px", color: "#808080" }}
-                >
+                <Typography variant="body2" fontWeight="bold">
+                  Brand Name
+                </Typography>
+                <Typography variant="body2" color="#808080">
                   NWS
                 </Typography>
               </Grid>
 
               <Grid item xs={6} md={6}>
-                <Typography variant="body1">Company Official Email</Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: "13px", color: "#808080" }}
-                >
+                <Typography variant="body2" fontWeight="bold">
+                  Company Official Email
+                </Typography>
+                <Typography variant="body2" color="#808080">
                   ---
                 </Typography>
               </Grid>
               <Grid item xs={6} md={6}>
-                <Typography variant="body1">
+                <Typography variant="body2" fontWeight="bold">
                   Company Official Contact
                 </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: "13px", color: "#808080" }}
-                >
+                <Typography variant="body2" color="#808080">
                   ---
                 </Typography>
               </Grid>
 
               <Grid item xs={6} md={6}>
-                <Typography variant="body1">Website</Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: "13px", color: "#808080" }}
-                >
+                <Typography variant="body2" fontWeight="bold">
+                  Website
+                </Typography>
+                <Typography variant="body2" color="#808080">
                   nwssoft.com
                 </Typography>
               </Grid>
               <Grid item xs={6} md={6}>
-                <Typography variant="body1">Domain Name</Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: "13px", color: "#808080" }}
-                >
+                <Typography variant="body2" fontWeight="bold">
+                  Domain Name
+                </Typography>
+                <Typography variant="body2" color="#808080">
                   nwssoft
                 </Typography>
               </Grid>
 
               <Grid item xs={6} md={6}>
-                <Typography variant="body1">Industry Type</Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ fontSize: "13px", color: "#808080" }}
-                >
+                <Typography variant="body2" fontWeight="bold">
+                  Industry Type
+                </Typography>
+                <Typography variant="body2" color="#808080">
                   ---
                 </Typography>
               </Grid>
@@ -109,8 +93,10 @@ export default function Overview() {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <Typography
-                  variant="h6"
-                  sx={{ color: "	#936c6c", textTransform: "uppercase" }}
+                  variant="body1"
+                  textTransform="uppercase"
+                  color="#936c6c"
+                  fontWeight="bold"
                 >
                   Social Profile
                 </Typography>
@@ -119,7 +105,7 @@ export default function Overview() {
                   sx={{ backgroundColor: "#424242" }}
                 />
               </Grid>
-              <Grid item xs={12} gap={5}>
+              <Grid item xs={12} spacing={2}>
                 <LinkedInIcon
                   sx={{
                     color: "#0080ff",
@@ -147,6 +133,6 @@ export default function Overview() {
           </Paper>
         </Grid>
       </Grid>
-    </Container>
+    </>
   );
 }

@@ -11,6 +11,7 @@ import Diversity1Icon from "@mui/icons-material/Diversity1";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import FolderIcon from "@mui/icons-material/Folder";
 import GroupsIcon from "@mui/icons-material/Groups";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LoginIcon from "@mui/icons-material/Login";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import PersonIcon from "@mui/icons-material/Person";
@@ -64,6 +65,7 @@ const mainList: SidebarItem[] = [
     name: "Recruitment",
     subItem: false,
     icon: <PersonSearchIcon />,
+    path: "recruitment-details",
   },
 ];
 
@@ -71,8 +73,27 @@ const subList: SidebarSubItem[] = [
   {
     id: "myProfile",
     list: [
-      { id: "work", name: "Work", subItem: false, icon: <WorkIcon /> },
-      { id: "team", name: "Team", subItem: false, icon: <GroupsIcon /> },
+      {
+        id: "personal",
+        name: "Personal",
+        subItem: false,
+        icon: <AccountCircleIcon />,
+        path: "personal-details",
+      },
+      {
+        id: "work",
+        name: "Work",
+        subItem: false,
+        icon: <WorkIcon />,
+        path: "work-details",
+      },
+      {
+        id: "team",
+        name: "Team",
+        subItem: false,
+        icon: <GroupsIcon />,
+        path: "team-details",
+      },
       {
         id: "education",
         name: "Education",
@@ -85,6 +106,7 @@ const subList: SidebarSubItem[] = [
         name: "Family",
         subItem: false,
         icon: <Diversity1Icon />,
+        path: "family-details",
       },
       { id: "documents", name: "Documents", subItem: false, icon: <TabIcon /> },
       {
