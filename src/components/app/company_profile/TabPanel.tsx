@@ -1,4 +1,4 @@
-import { TabPanelProps } from "../interfaces/Interfaces";
+import { TabPanelProps } from "../../interfaces/Interfaces";
 
 export default function TabPanel(props: TabPanelProps) {
   const { children, value, index } = props;

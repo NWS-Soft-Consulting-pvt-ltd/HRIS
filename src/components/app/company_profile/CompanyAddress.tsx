@@ -2,7 +2,7 @@ import { Container, Divider, Grid, Paper, Typography } from "@mui/material";
 
 export default function CompanyAddress() {
   return (
-    <Container fixed sx={{ marginTop: "30px" }}>
+    <>
       <Grid
         container
         spacing={2}
@@ -10,6 +10,7 @@ export default function CompanyAddress() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          marginTop: "20px",
         }}
       >
         <Grid item xs={12}>
@@ -17,8 +18,10 @@ export default function CompanyAddress() {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <Typography
-                  variant="h6"
-                  sx={{ color: "#936c6c", textTransform: "uppercase" }}
+                  variant="body1"
+                  textTransform="uppercase"
+                  color="#936c6c"
+                  fontWeight="bold"
                 >
                   Registered Office
                 </Typography>
@@ -28,16 +31,16 @@ export default function CompanyAddress() {
                 />
               </Grid>
               <Grid item xs={6} md={6}>
-                <Typography variant="body1" sx={{ fontSize: "18px" }}>
+                <Typography variant="body1" fontWeight="bold">
                   NWS Soft Consulting Pvt Ltd
                 </Typography>
-                <Typography variant="body2" sx={{ color: "#808080" }}>
+                <Typography variant="body2" color="#808080">
                   503 & 504 Orville Business Port
                 </Typography>
-                <Typography variant="body2" sx={{ color: "#808080" }}>
+                <Typography variant="body2" color="#808080">
                   VIMAN NAGAR NEAR AIR FROCE
                 </Typography>
-                <Typography variant="body2" sx={{ color: "#808080" }}>
+                <Typography variant="body2" color="#808080">
                   PUNE, Maharashtra, INDIA - 411014
                 </Typography>
               </Grid>
@@ -45,6 +48,6 @@ export default function CompanyAddress() {
           </Paper>
         </Grid>
       </Grid>
-    </Container>
+    </>
   );
 }

@@ -2,15 +2,17 @@ import { Container, Divider, Grid, Paper, Typography } from "@mui/material";
 
 export default function CompanyPolicies() {
   return (
-    <Container fixed sx={{ marginTop: "30px" }}>
-      <Grid container spacing={2}>
+    <>
+      <Grid container spacing={2} marginTop="20px">
         <Grid item xs={12}>
           <Paper elevation={3} sx={{ padding: "20px", textAlign: "initial" }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <Typography
-                  variant="h6"
-                  sx={{ color: "#936c6c", textTransform: "uppercase" }}
+                  variant="body1"
+                  textTransform="uppercase"
+                  color="#936c6c"
+                  fontWeight="bold"
                 >
                   Company Policies
                 </Typography>
@@ -21,7 +23,7 @@ export default function CompanyPolicies() {
               </Grid>
               <Grid item xs={12}>
                 <Typography
-                  variant="body1"
+                  variant="body2"
                   sx={{ color: "#808080", textAlign: "center" }}
                 >
                   No Policies uploaded yet
@@ -31,6 +33,6 @@ export default function CompanyPolicies() {
           </Paper>
         </Grid>
       </Grid>
-    </Container>
+    </>
   );
 }

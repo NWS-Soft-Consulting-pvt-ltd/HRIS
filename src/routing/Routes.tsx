@@ -1,5 +1,9 @@
-import CompanyProfile from "../components/app/CompanyProfile";
-import EducationInfo from "../components/app/EducationInfo";
+import CompanyProfile from "../components/app/company_profile/CompanyProfile";
+import EducationProfile from "../components/app/my_profile/EducationProfile";
+import FamilyProfile from "../components/app/my_profile/FamilyProfile";
+import PersonalProfile from "../components/app/my_profile/PersonalProfile";
+import TeamProfile from "../components/app/my_profile/TeamProfile";
+import WorkProfile from "../components/app/my_profile/WorkProfile";
 import { RouteComponent } from "../components/interfaces/Interfaces";
 import About from "../components/website/About";
 import Contact from "../components/website/Contact";
@@ -25,5 +29,10 @@ export const websiteRoutes: RouteComponent[] = [
 // app routes
 export const appRoutes: RouteComponent[] = [
   { path: "/dashboard/company-profile", component: <CompanyProfile /> },
-  { path: "/dashboard/educational-details", component: <EducationInfo /> },
+  { path: "/dashboard/work-details", component: <WorkProfile /> },
+  { path: "/dashboard/team-details", component: <TeamProfile /> },
+  { path: "/dashboard/educational-details", component: <EducationProfile /> },
+  { path: "/dashboard/family-details", component: <FamilyProfile /> },
+  { path: "/dashboard/personal-details", component: <PersonalProfile /> },
+
 ];
