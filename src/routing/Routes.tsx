@@ -34,5 +34,4 @@ export const appRoutes: RouteComponent[] = [
   { path: "/dashboard/educational-details", component: <EducationProfile /> },
   { path: "/dashboard/family-details", component: <FamilyProfile /> },
   { path: "/dashboard/personal-details", component: <PersonalProfile /> },
-
 ];

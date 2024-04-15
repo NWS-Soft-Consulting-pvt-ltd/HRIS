@@ -27,6 +27,9 @@ import {
   StyledInputBase,
 } from "../styled/DashboardParts";
 import { MainListItems } from "./ListItems";
+import { postRequest } from "../../api/Api";
+import { LOGOUT } from "../../api/Server";
+import { AxiosError, AxiosResponse } from "axios";
 
 const MenuList: MenuObject[] = [
   { name: "Profile", icon: <AccountCircleIcon /> },
@@ -90,8 +93,15 @@ export default function Dashboard() {
   };
 
   const handleCloseUserMenu = (button: string) => {
-    if (button === "Logout") navigate("/login");
     setAnchorElUser(null);
+    if (button === "Logout") {
+      postRequest(LOGOUT, "", undefined)
+        .then((response: AxiosResponse) => {
+          alert(response.data);
+          navigate("/login");
+        })
+        .catch((error: AxiosError) => console.error(error));
+    }
   };
 
   return (
