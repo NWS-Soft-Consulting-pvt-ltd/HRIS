@@ -5,6 +5,7 @@ import MainDashboard from "../components/app/MainDashboard";
 import { RouteComponent } from "../components/interfaces/Interfaces";
 import Home from "../components/website/Home";
 import Layout from "../components/website/Layout";
+import { ReactComponent as PageNotFound } from "../images/Page-Not-Found.svg";
 import { appRoutes, websiteRoutes } from "./Routes";
 
 const AppRouter: FC = () => {
@@ -12,6 +13,7 @@ const AppRouter: FC = () => {
     <Fragment>
       <BrowserRouter>
         <Routes>
+          <Route path="*" element={<PageNotFound />} />
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             {websiteRoutes.map(
